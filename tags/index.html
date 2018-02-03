@@ -91,13 +91,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -105,7 +98,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -113,6 +106,13 @@
                         
                         <li>
                             <a href="/collection/">Collections</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -178,9 +178,15 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
+                    <a href="#LaTeX" title="LaTeX" rel="1">LaTeX</a>
+                
                     <a href="#Gradle" title="Gradle" rel="1">Gradle</a>
                 
-                    <a href="#LaTeX" title="LaTeX" rel="1">LaTeX</a>
+                    <a href="#nutz" title="nutz" rel="1">nutz</a>
+                
+                    <a href="#Java" title="Java" rel="1">Java</a>
+                
+                    <a href="#框架" title="框架" rel="1">框架</a>
                 
                     <a href="#GitHub" title="GitHub" rel="1">GitHub</a>
                 
@@ -192,15 +198,7 @@
                 
                     <a href="#JavaScript" title="JavaScript" rel="3">JavaScript</a>
                 
-                    <a href="#nutz" title="nutz" rel="1">nutz</a>
-                
-                    <a href="#Java" title="Java" rel="1">Java</a>
-                
-                    <a href="#框架" title="框架" rel="1">框架</a>
-                
                     <a href="#Tools" title="Tools" rel="1">Tools</a>
-                
-                    <a href="#ionic" title="ionic" rel="1">ionic</a>
                 
                     <a href="#npm" title="npm" rel="1">npm</a>
                 
@@ -210,16 +208,40 @@
                 
                     <a href="#建站" title="建站" rel="1">建站</a>
                 
-                    <a href="#hosts" title="hosts" rel="1">hosts</a>
+                    <a href="#Google" title="Google" rel="1">Google</a>
                 
                     <a href="#Android" title="Android" rel="1">Android</a>
                 
-                    <a href="#Google" title="Google" rel="1">Google</a>
+                    <a href="#hosts" title="hosts" rel="1">hosts</a>
+                
+                    <a href="#ionic" title="ionic" rel="1">ionic</a>
                 
             </div>
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="LaTeX">
+                    <span class="tag-text">LaTeX</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/01/26/Getting-Start-with-LaTeX/">
+                        <h2 class="post-title">
+                            LaTeX入门
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="Gradle">
@@ -244,8 +266,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="LaTeX">
-                    <span class="tag-text">LaTeX</span>
+                <span class="fa fa-tag listing-seperator" id="nutz">
+                    <span class="tag-text">nutz</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -253,9 +275,53 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/01/26/Getting-Start-with-LaTeX/">
+                     <a href="/2017/11/16/awesome-nutz/">
                         <h2 class="post-title">
-                            LaTeX入门
+                            nutz学习相关资料
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Java">
+                    <span class="tag-text">Java</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/16/awesome-nutz/">
+                        <h2 class="post-title">
+                            nutz学习相关资料
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="框架">
+                    <span class="tag-text">框架</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/16/awesome-nutz/">
+                        <h2 class="post-title">
+                            nutz学习相关资料
                         </h2>
                         
                     </a>
@@ -421,72 +487,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="nutz">
-                    <span class="tag-text">nutz</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/16/awesome-nutz/">
-                        <h2 class="post-title">
-                            nutz学习相关资料
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Java">
-                    <span class="tag-text">Java</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/16/awesome-nutz/">
-                        <h2 class="post-title">
-                            nutz学习相关资料
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="框架">
-                    <span class="tag-text">框架</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/16/awesome-nutz/">
-                        <h2 class="post-title">
-                            nutz学习相关资料
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="Tools">
                     <span class="tag-text">Tools</span>
                 </span>
@@ -499,28 +499,6 @@
                      <a href="/2017/07/08/awesome-programming-tool-and-docs/">
                         <h2 class="post-title">
                             软件开发优秀资料、工具和框架
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="ionic">
-                    <span class="tag-text">ionic</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/07/27/change-icon-and-splash-ionic/">
-                        <h2 class="post-title">
-                            ionic 2 ionic 3更换icon和splash
                         </h2>
                         
                     </a>
@@ -634,8 +612,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="hosts">
-                    <span class="tag-text">hosts</span>
+                <span class="fa fa-tag listing-seperator" id="Google">
+                    <span class="tag-text">Google</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -643,9 +621,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/07/15/public-hosts/">
+                     <a href="/2017/02/21/uses-of-Google-Voice/">
                         <h2 class="post-title">
-                            Hosts
+                            Google Voice的用途
                         </h2>
                         
                     </a>
@@ -678,8 +656,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Google">
-                    <span class="tag-text">Google</span>
+                <span class="fa fa-tag listing-seperator" id="hosts">
+                    <span class="tag-text">hosts</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -687,9 +665,31 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/02/21/uses-of-Google-Voice/">
+                     <a href="/2017/07/15/public-hosts/">
                         <h2 class="post-title">
-                            Google Voice的用途
+                            Hosts
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="ionic">
+                    <span class="tag-text">ionic</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/07/27/change-icon-and-splash-ionic/">
+                        <h2 class="post-title">
+                            ionic 2 ionic 3更换icon和splash
                         </h2>
                         
                     </a>
