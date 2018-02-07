@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Terence&#39;s Blog</title>
+  <icon>https://www.gravatar.com/avatar/38cc08e1b14c46a27a8b15e3a6bd08ab</icon>
+  <subtitle>Getting Better!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://hanyuzhou.com/"/>
+  <updated>2018-02-07T03:21:05.541Z</updated>
+  <id>https://hanyuzhou.com/</id>
+  
+  <author>
+    <name>Terence Han</name>
+    <email>terencehyz@gmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LaTeX入门</title>
+    <link href="https://hanyuzhou.com/2018/01/26/Getting-Start-with-LaTeX/"/>
+    <id>https://hanyuzhou.com/2018/01/26/Getting-Start-with-LaTeX/</id>
+    <published>2018-01-26T15:23:08.000Z</published>
+    <updated>2018-02-07T03:21:05.541Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关于"><a href="#关于" class="headerlink" title="关于\"></a>关于<code>\</code></h2><p><code>\begin{环境名字}\end{环境名字}</code>是环境，用<code>\</code>开头，控制排版<br><code>\document</code>,<code>\usepackage</code>是命令</p><h2 id="document环境中的写作"><a href="#document环境中的写作" class="headerlink" title="document环境中的写作"></a>document环境中的写作</h2><p>编辑器段与段之间要空一行，从而保证文本分段。<br>关于字体的命令/环境</p><ol><li>加粗 <code>\textbf{内容}</code></li><li>字号 <code>\normal</code> <code>\large</code> <code>\Large</code> <code>\LARGE</code> <code>\huge</code> <code>Huge</code><blockquote><p>字号大小在一个环境内或<code>{}</code>间生效<br>例<code>{\large 123}</code></p></blockquote></li><li><p>居中</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;center&#125;</span></span> </span><br><span class="line">内容 </span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;center&#125;</span></span></span><br></pre></td></tr></table></figure></li><li><p>文章标题与作者、日期<br><code>\title{标题名}</code><br><code>\author{作者名}</code><br><code>\date{日期}</code><br><code>\maketitle</code></p><blockquote><p><code>\maketitle</code>用于显示标题、作者、日期</p></blockquote></li><li>章节划分<br><code>\section{章节名}</code>一级章节<br><code>\subsection{章节名}</code>二级章节<br><code>\subsubsection{章节名}</code>三级章节</li><li>添加目录<br><code>\tableofcontents</code></li><li><p>摘要环境</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\<span class="keyword">begin</span>&#123;<span class="keyword">abstract</span>&#125;</span><br><span class="line">摘要内容</span><br><span class="line">\<span class="keyword">end</span>&#123;<span class="keyword">abstract</span>&#125;</span><br></pre></td></tr></table></figure></li><li><p>罗列环境</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;itemize&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">item</span></span>    </span><br><span class="line"><span class="tag">\<span class="name">item</span></span>    </span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;itemize&#125;</span></span></span><br></pre></td></tr></table></figure></li></ol><h2 id="关于公式"><a href="#关于公式" class="headerlink" title="关于公式"></a>关于公式</h2><ul><li>公式环境</li></ul><ol><li><p>不可换行</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></span><br><span class="line">公式    </span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></span><br></pre></td></tr></table></figure></li><li><p>可换行</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;algined&#125;</span></span></span><br><span class="line">&amp; 公式<span class="tag">\<span class="name">\</span></span></span><br><span class="line">&amp; 公式</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;algined&#125;</span></span></span><br></pre></td></tr></table></figure><blockquote><p><code>&amp;</code>用于对齐，<code>\\</code>用于换行  </p></blockquote></li><li><p>无编号公式</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation*&#125;</span></span></span><br><span class="line">公式</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation*&#125;</span></span></span><br></pre></td></tr></table></figure><p> 或    </p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span><span class="tag">\<span class="name">nonumber</span></span></span><br><span class="line">公式</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></span><br></pre></td></tr></table></figure><p> 或<code>$$公式$$</code><br> 或<code>\[ 公式 \]</code></p></li><li>行内公式<br><code>$公式$</code></li><li>公式命令<br>幂 <code>x^{2a+1}</code><br>下标 <code>x_{2a+1}</code><br>分式<code>\frac{x}{y}</code><br>积分号<code>\int^{上限}_{下限}</code><br>微分号<code>\mathrm{d}</code><br>求和<code>\sum^{5}_{0}</code></li><li><p>大型公式(需要包含宏包mathtools)<br>矩阵</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></span><br><span class="line">A=<span class="tag">\<span class="name">begin</span><span class="string">&#123;bmatrix&#125;</span></span></span><br><span class="line">    1&amp;2 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">    4&amp;5</span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;bmatrix&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></span><br></pre></td></tr></table></figure><p> 大括号</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">left</span></span><span class="tag">\<span class="name">&#123;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;aligned&#125;</span></span></span><br><span class="line">        &amp; x^&#123;2&#125;<span class="tag">\<span class="name">\</span></span></span><br><span class="line">        &amp; x^&#123;2&#125;+x</span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;aligned&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">right</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></span><br></pre></td></tr></table></figure><blockquote><p><code>\{</code>用于输出大括号</p></blockquote></li></ol><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ul><li><p>普通表格环境tabular</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tabular&#125;</span><span class="string">&#123;|l|c|r|&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">hline</span></span></span><br><span class="line">    指标1 &amp; 指标2 &amp; 指标3 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">    <span class="tag">\<span class="name">hline</span></span></span><br><span class="line">    居左 &amp; 居中 &amp; 居右</span><br><span class="line">    <span class="tag">\<span class="name">hline</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tabular&#125;</span></span></span><br></pre></td></tr></table></figure></li><li><p>三线表的制作(需要booktabs宏包)</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">centering</span></span></span><br><span class="line">    <span class="tag">\<span class="name">caption</span><span class="string">&#123;题目&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;tabular&#125;</span><span class="string">&#123;cccc&#125;</span></span></span><br><span class="line">        <span class="tag">\<span class="name">toprule</span></span></span><br><span class="line">        &amp;指标1 &amp; 指标2 &amp; 指标3 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">        <span class="tag">\<span class="name">midrule</span></span></span><br><span class="line">        方案一 &amp; 1 &amp; 0.5 &amp; 100 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">        方案二 &amp; 2 &amp; 0.6 &amp; 200 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">        <span class="tag">\<span class="name">bottomrule</span></span></span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;tabular&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></span><br></pre></td></tr></table></figure></li></ul><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\graphicspath&#123;&#123;figures/&#125;,&#123;pics/&#125;&#125;</span><br></pre></td></tr></table></figure><blockquote><p>将图片与figures文件夹建立关联，即.tex文件与figures文件在在同一目录下，且此文档中用到的图片均来自figures这个文件夹</p></blockquote><p>figure环境<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;figure&#125;</span><span class="string">[H]</span></span></span><br><span class="line">    <span class="tag">\<span class="name">centering</span></span></span><br><span class="line">    <span class="tag">\<span class="name">includegraphics</span><span class="string">[width=8cm,height=12cm]</span><span class="string">&#123;name.png&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">caption</span><span class="string">&#123;标题&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;figure&#125;</span></span></span><br></pre></td></tr></table></figure></p><blockquote><p><code>[H]</code>固定图片位置</p></blockquote><h2 id="命令lable及引用"><a href="#命令lable及引用" class="headerlink" title="命令lable及引用"></a>命令lable及引用</h2><ol><li><p>lable</p><figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lable&#123;<span class="string">#1</span>: <span class="string">#2</span>&#125;</span><br></pre></td></tr></table></figure><blockquote><p><code>#1</code>表示类型，包括 <code>eq</code> 公式，<code>tab</code> 表格，<code>fig</code> 图片<br><code>#2</code>表示名字</p></blockquote> <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></span><br><span class="line">    F=ma</span><br><span class="line">    <span class="tag">\<span class="name">lable</span><span class="string">&#123;eq:Niudun&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></span><br></pre></td></tr></table></figure></li><li><p>ref<br><code>\ref{eq:Niudun}</code></p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">由公式(\<span class="selector-tag">ref</span>&#123;<span class="attribute">eq</span>:Niudun&#125;)我们可知</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li></ol><h2 id="符号-amp-与"><a href="#符号-amp-与" class="headerlink" title="符号&amp;与\\"></a>符号<code>&amp;</code>与<code>\\</code></h2><ul><li>符号<code>&amp;</code>表示对齐</li><li>符号<code>\\</code>表示换行</li><li>特殊符号输出使用<code>\verb</code></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;关于&quot;&gt;&lt;a href=&quot;#关于&quot; class=&quot;headerlink&quot; title=&quot;关于\&quot;&gt;&lt;/a&gt;关于&lt;code&gt;\&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;&lt;code&gt;\begin{环境名字}\end{环境名字}&lt;/code&gt;是环境，用&lt;code&gt;\&lt;/code&gt;开
+      
+    
+    </summary>
+    
+    
+      <category term="LaTeX" scheme="https://hanyuzhou.com/tags/LaTeX/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nutz学习相关资料</title>
+    <link href="https://hanyuzhou.com/2017/11/16/awesome-nutz/"/>
+    <id>https://hanyuzhou.com/2017/11/16/awesome-nutz/</id>
+    <published>2017-11-16T10:18:38.000Z</published>
+    <updated>2017-11-16T10:52:05.346Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://nutzbook.wendal.net/" target="_blank" rel="noopener">官方文档</a><br><a href="https://my.oschina.net/wendal/blog?catalog=33978" target="_blank" rel="noopener">博客</a><br><a href="https://nutz.cn/yvr/list" target="_blank" rel="noopener">社区</a><br><a href="https://nutz.cn/nutzdw/" target="_blank" rel="noopener">相关下载</a><br><a href="http://blog.csdn.net/yyhaohaoxuexi/article/details/72462155" target="_blank" rel="noopener">使用IntelliJ IDEA 2017.1配置Nutz开发JavaWeb</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://nutzbook.wendal.net/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://my.oschina.net/wendal/blog?catalog=3397
+      
+    
+    </summary>
+    
+    
+      <category term="nutz" scheme="https://hanyuzhou.com/tags/nutz/"/>
+    
+      <category term="Java" scheme="https://hanyuzhou.com/tags/Java/"/>
+    
+      <category term="框架" scheme="https://hanyuzhou.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>配置Gradle环境</title>
+    <link href="https://hanyuzhou.com/2017/09/17/Configure-the-Gradle-environment/"/>
+    <id>https://hanyuzhou.com/2017/09/17/Configure-the-Gradle-environment/</id>
+    <published>2017-09-17T02:47:15.000Z</published>
+    <updated>2017-09-17T05:18:44.240Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="下载Gradle"><a href="#下载Gradle" class="headerlink" title="下载Gradle"></a>下载Gradle</h2><p><a href="https://gradle.org/releases/" target="_blank" rel="noopener">下载地址：https://gradle.org/releases/</a></p><blockquote><p>下载 <code>binary-only</code>版本</p></blockquote><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><h3 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h3><p>本机存放地址为<code>/Users/terencehyz/gradle/gradle-4.1</code></p><ol><li><p>打开终端(Terminal)并输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .bash_profile</span><br></pre></td></tr></table></figure></li><li><p>打开<code>.bash_profile</code>文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open .bash_profile</span><br></pre></td></tr></table></figure></li><li><p>在文件中输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GRADLE_HOME=/Users/terencehyz/gradle/gradle-4.1;</span><br><span class="line"><span class="built_in">export</span> GRADLE_HOME</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GRADLE_HOME</span>/bin</span><br></pre></td></tr></table></figure></li><li><p>保存<code>.bash_profile</code>并执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure></li></ol><p>更新<code>.bash_profile</code> 文件</p><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ol><li>新建环境变量<code>GRADLE_HOME</code>为本地地址<code>D:\gradle-4.1</code></li><li>修改环境变量<code>PATH</code>，增加<code>%GRADLE_HOME%\BIN;</code></li></ol><h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><p>在终端（Mac OS）或（CMD）执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -version</span><br></pre></td></tr></table></figure></p><p><img src="https://ws1.sinaimg.cn/large/77ce63b1ly1fji6fv9pxij20gb0ac757.jpg" alt=""></p><p>MacOS<br><img src="https://ws1.sinaimg.cn/large/77ce63b1gy1fjmcj4qgicj20r90e9mx8.jpg" alt=""><br>Windows</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;下载Gradle&quot;&gt;&lt;a href=&quot;#下载Gradle&quot; class=&quot;headerlink&quot; title=&quot;下载Gradle&quot;&gt;&lt;/a&gt;下载Gradle&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://gradle.org/releases/&quot; target=
+      
+    
+    </summary>
+    
+    
+      <category term="Gradle" scheme="https://hanyuzhou.com/tags/Gradle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>npm换源</title>
+    <link href="https://hanyuzhou.com/2017/09/09/how-to-change-npm-source/"/>
+    <id>https://hanyuzhou.com/2017/09/09/how-to-change-npm-source/</id>
+    <published>2017-09-09T05:12:32.000Z</published>
+    <updated>2017-09-09T05:15:45.202Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>更换npm源地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p><p>检查npm原地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure></p><p>出现错误<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm info retry will retry, error on last attempt: Error: CERT_UNTRUSTED</span><br></pre></td></tr></table></figure></p><p>解决方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> strict-ssl <span class="literal">false</span></span><br></pre></td></tr></table></figure></p><h2 id="cnpm代替npm"><a href="#cnpm代替npm" class="headerlink" title="cnpm代替npm"></a>cnpm代替npm</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;换源&quot;&gt;&lt;a href=&quot;#换源&quot; class=&quot;headerlink&quot; title=&quot;换源&quot;&gt;&lt;/a&gt;换源&lt;/h2&gt;&lt;p&gt;更换npm源地址&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
+      
+    
+    </summary>
+    
+    
+      <category term="npm" scheme="https://hanyuzhou.com/tags/npm/"/>
+    
+      <category term="cnpm" scheme="https://hanyuzhou.com/tags/cnpm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 2 ionic 3更换icon和splash</title>
+    <link href="https://hanyuzhou.com/2017/07/27/change-icon-and-splash-ionic/"/>
+    <id>https://hanyuzhou.com/2017/07/27/change-icon-and-splash-ionic/</id>
+    <published>2017-07-27T08:40:58.000Z</published>
+    <updated>2017-07-27T09:15:06.373Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol><li>工程中需要添加Androin或iOS平台</li><li>icon和splash图像文件<blockquote><p>icon图像最小尺寸为192×192px，非圆角图片。<br>splash图像最小尺寸为2208×2208px。<br>图像格式支持.png、.psd、.ai<br>icon文件命名为icon.png<br>splash文件命名为splash.png</p></blockquote></li></ol><h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol><li>删除resource文件夹下android文件夹和iOS文件夹。</li><li>进行终端操作</li></ol><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic resource  <span class="comment">//同时修改icon和splash</span></span><br></pre></td></tr></table></figure><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic resource <span class="params">--icon</span>   <span class="string">//</span>只修改icon</span><br></pre></td></tr></table></figure><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic resource <span class="params">--splash</span> <span class="string">//</span>只修改splash</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;工程中需要添加Androin或iOS平台&lt;/li&gt;
+&lt;li&gt;icon和splash图像文件&lt;blockquote
+      
+    
+    </summary>
+    
+    
+      <category term="ionic" scheme="https://hanyuzhou.com/tags/ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github使用技巧</title>
+    <link href="https://hanyuzhou.com/2017/07/25/Tips-for-using-Github/"/>
+    <id>https://hanyuzhou.com/2017/07/25/Tips-for-using-Github/</id>
+    <published>2017-07-25T03:56:05.000Z</published>
+    <updated>2017-07-26T10:45:10.256Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p><code>t</code> 搜索文件<br><code>gp</code> (go to pull request) 跳转到pull request页面<br><code>gc</code> (go to code) 跳转到code页面<br><code>s</code> 定位搜索框<br><code>shift</code>+<code>?</code> 查看所有快捷键</p><h2 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h2><p>文件网址#L行号-L行号</p><blockquote><p>相当于添加了锚点</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;快捷键&quot;&gt;&lt;a href=&quot;#快捷键&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h2&gt;&lt;p&gt;&lt;code&gt;t&lt;/code&gt; 搜索文件&lt;br&gt;&lt;code&gt;gp&lt;/code&gt; (go to pull request) 跳转到pul
+      
+    
+    </summary>
+    
+    
+      <category term="GitHub" scheme="https://hanyuzhou.com/tags/GitHub/"/>
+    
+      <category term="Tips" scheme="https://hanyuzhou.com/tags/Tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hosts</title>
+    <link href="https://hanyuzhou.com/2017/07/15/public-hosts/"/>
+    <id>https://hanyuzhou.com/2017/07/15/public-hosts/</id>
+    <published>2017-07-15T09:06:17.000Z</published>
+    <updated>2017-07-27T09:09:10.253Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="什么是hosts"><a href="#什么是hosts" class="headerlink" title="什么是hosts?"></a>什么是hosts?</h1><p>Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库” ，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到， 则系统再会将网址提交DNS域名解析服务器进行IP地址的解析。</p><h1 id="为什么需要host"><a href="#为什么需要host" class="headerlink" title="为什么需要host?"></a>为什么需要host?</h1><p>G~F~W针对某些域名进行DNS污染，所以使我们无法解析到一个“正确”的IP地址。所以为了能够科学上网，我们便可以通过更改host的方法来完成。</p><h1 id="hosts文件从哪里来？"><a href="#hosts文件从哪里来？" class="headerlink" title="hosts文件从哪里来？"></a>hosts文件从哪里来？</h1><ul><li><a href="https://github.com/search?utf8=%E2%9C%93&amp;q=hosts&amp;type=" target="_blank" rel="noopener">GitHub</a>中有较多开源项目</li><li><a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" rel="noopener">老D的Hosts</a></li><li><a href="http://hosts.hanyuzhou.com/" target="_blank" rel="noopener">Merge-Public-Hosts</a></li><li>…</li></ul><h1 id="hosts在哪里修改"><a href="#hosts在哪里修改" class="headerlink" title="hosts在哪里修改"></a>hosts在哪里修改</h1><ul><li>Windows 系统hosts位于 C:/Windows/System32/drivers/etc/hosts</li><li>Android 系统hosts位于 /system/etc/hosts</li><li>Linux 系统hosts位于 /etc/hosts</li><li>Mac 系统hosts位于 /etc/hosts</li><li>iOS 系统hosts位于 /etc/hosts</li></ul><h1 id="本站提供的hosts文件"><a href="#本站提供的hosts文件" class="headerlink" title="本站提供的hosts文件"></a>本站提供的hosts文件</h1><p>Hosts内容合并自GitHub四个项目，可以满足基本使用。</p><blockquote><p>AD(vokins)：<a href="https://raw.githubusercontent.com/vokins/yhosts/master/hosts" target="_blank" rel="noopener">https://raw.githubusercontent.com/vokins/yhosts/master/hosts</a><br>play ： <a href="https://raw.githubusercontent.com/sy618/hosts/master/p" target="_blank" rel="noopener">https://raw.githubusercontent.com/sy618/hosts/master/p</a><br>YouTube ： <a href="https://raw.githubusercontent.com/sy618/hosts/master/y" target="_blank" rel="noopener">https://raw.githubusercontent.com/sy618/hosts/master/y</a><br>fq(racaljk)：<a href="https://raw.githubusercontent.com/racaljk/hosts/master/hosts" target="_blank" rel="noopener">https://raw.githubusercontent.com/racaljk/hosts/master/hosts</a></p></blockquote><h2 id="文件地址"><a href="#文件地址" class="headerlink" title="文件地址"></a>文件地址</h2><p><a href="https://hosts.hanyuzhou.com" target="_blank" rel="noopener">hosts.hanyuzhou.com</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;什么是hosts&quot;&gt;&lt;a href=&quot;#什么是hosts&quot; class=&quot;headerlink&quot; title=&quot;什么是hosts?&quot;&gt;&lt;/a&gt;什么是hosts?&lt;/h1&gt;&lt;p&gt;Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址
+      
+    
+    </summary>
+    
+    
+      <category term="hosts" scheme="https://hanyuzhou.com/tags/hosts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>建站资源</title>
+    <link href="https://hanyuzhou.com/2017/07/09/network-resources/"/>
+    <id>https://hanyuzhou.com/2017/07/09/network-resources/</id>
+    <published>2017-07-09T07:46:07.000Z</published>
+    <updated>2018-02-03T11:25:19.211Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="各种博客"><a href="#各种博客" class="headerlink" title="各种博客"></a>各种博客</h2><ul><li><a href="http://www.vpsps.com/" target="_blank" rel="noopener">vps评审</a></li><li><a href="https://www.ypank.com/" target="_blank" rel="noopener">非逸般</a></li></ul><h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><ul><li><a href="https://my.jiasulo.com" target="_blank" rel="noopener">加速喽</a></li><li><a href="https://gate.cachemoment.com" target="_blank" rel="noopener">魔门云</a></li></ul><h2 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h2><ul><li><a href="https://github.com/suxiaogang/WeiboPicBed" target="_blank" rel="noopener">微博是个好图床</a></li><li><a href="https://sm.ms/" target="_blank" rel="noopener">sm.ms</a></li><li><a href="https://blog.yangsail.com/mian-fei-https-tu-chuang/" target="_blank" rel="noopener">图床推荐1</a></li><li><a href="https://www.cmsky.com/fig-bed/" target="_blank" rel="noopener">图床推荐2</a> 厘米天空整理</li></ul><h2 id="免费云主机"><a href="#免费云主机" class="headerlink" title="免费云主机"></a>免费云主机</h2><ul><li><a href="https://caisan.io/49254" target="_blank" rel="noopener">彩伞</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;各种博客&quot;&gt;&lt;a href=&quot;#各种博客&quot; class=&quot;headerlink&quot; title=&quot;各种博客&quot;&gt;&lt;/a&gt;各种博客&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.vpsps.com/&quot; target=&quot;_blank&quot; rel=&quot;noo
+      
+    
+    </summary>
+    
+    
+      <category term="建站" scheme="https://hanyuzhou.com/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件开发优秀资料、工具和框架</title>
+    <link href="https://hanyuzhou.com/2017/07/08/awesome-programming-tool-and-docs/"/>
+    <id>https://hanyuzhou.com/2017/07/08/awesome-programming-tool-and-docs/</id>
+    <published>2017-07-08T12:50:30.000Z</published>
+    <updated>2018-02-03T11:26:21.629Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>俗话说：“工欲善其事必先利其器”，开发的过程可能会用到优秀的资料或者框架，下面是我开发过程中用到的一些工具和优秀资料。</p></blockquote><h2 id="站点"><a href="#站点" class="headerlink" title="站点"></a>站点</h2><h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h3><ul><li><a href="http://hao.shejidaren.com/" target="_blank" rel="noopener">设计导航</a> </li><li><a href="https://admire.so/" target="_blank" rel="noopener">钦慕</a> 每天发现一个好链接</li></ul><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul><li><a href="https://c9.io/" target="_blank" rel="noopener">Cloud9</a> 免费云IDE代码编辑平台空间</li><li><a href="https://www.heroku.com" target="_blank" rel="noopener">Heroku</a> 免费云空间</li></ul><h2 id="Git相关"><a href="#Git相关" class="headerlink" title="Git相关"></a>Git相关</h2><ul><li><a href="https://shields.io/" target="_blank" rel="noopener">git编译图标</a></li></ul><h2 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h2><h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><ul><li><a href="http://mishengqiang.com/sweetalert/" target="_blank" rel="noopener">SweetAlert</a> 消息提示</li><li><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">animate.css</a> 动画效果</li><li><a href="http://scrollanim.kissui.io/" target="_blank" rel="noopener">scrollanim</a> 动画效果</li><li><a href="https://purecss.io/" target="_blank" rel="noopener">pure.css</a> 类似于bootstrap的前端框架</li><li><a href="http://www.semantic-ui.cn/" target="_blank" rel="noopener">semantic-ui</a> 类似于bootstrap的前端框架</li><li><a href="http://www.foundcss.com/" target="_blank" rel="noopener">foundcss</a> 类似于bootstrap的前端框架</li><li><a href="http://cssreset.com/" target="_blank" rel="noopener">cssreset</a> css重设工具</li><li><a href="http://github.hubspot.com/pace/docs/welcome/" target="_blank" rel="noopener">pace.js</a> 页面加载进度自动指示和 Ajax 导航效果</li><li><a href="http://aui.github.io/artDialog/" target="_blank" rel="noopener">artDialog</a> 经典的网页对话框组件</li><li><a href="http://fontawesome.io/" target="_blank" rel="noopener">FontAwesome</a> css字体图标</li><li><a href="https://github.com/maroslaw/rainyday.js" target="_blank" rel="noopener">rainyday.js</a> 实现图片下雨天效果</li></ul><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ul><li><a href="https://github.com/almasaeed2010/AdminLTE/" target="_blank" rel="noopener">AdminLTE</a> 后台管理界面</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;俗话说：“工欲善其事必先利其器”，开发的过程可能会用到优秀的资料或者框架，下面是我开发过程中用到的一些工具和优秀资料。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;站点&quot;&gt;&lt;a href=&quot;#站点&quot; class=&quot;headerlink&quot; t
+      
+    
+    </summary>
+    
+    
+      <category term="Tools" scheme="https://hanyuzhou.com/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue.js移动设备开发技巧</title>
+    <link href="https://hanyuzhou.com/2017/03/05/tips-for-vue-mobile-device-development/"/>
+    <id>https://hanyuzhou.com/2017/03/05/tips-for-vue-mobile-device-development/</id>
+    <published>2017-03-05T01:40:58.000Z</published>
+    <updated>2017-03-05T02:59:13.532Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.tab&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    width: <span class="number">100</span>%;</span><br><span class="line">    height: <span class="number">40</span>px;</span><br><span class="line">    line-height: <span class="number">40</span>px;</span><br><span class="line">&#125;</span><br><span class="line">.tab .tab-item&#123;</span><br><span class="line">flex: <span class="number">1</span>;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>对于<code>&lt;a&gt;</code>可以设置<code>display: block</code>从而实现点击某一块即可进行跳转</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;样式&quot;&gt;&lt;a href=&quot;#样式&quot; class=&quot;headerlink&quot; title=&quot;样式&quot;&gt;&lt;/a&gt;样式&lt;/h2&gt;&lt;h3 id=&quot;三栏布局&quot;&gt;&lt;a href=&quot;#三栏布局&quot; class=&quot;headerlink&quot; title=&quot;三栏布局&quot;&gt;&lt;/a&gt;三栏布局&lt;/h
+      
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://hanyuzhou.com/tags/vue-js/"/>
+    
+      <category term="JavaScript" scheme="https://hanyuzhou.com/tags/JavaScript/"/>
+    
+      <category term="iOS" scheme="https://hanyuzhou.com/tags/iOS/"/>
+    
+      <category term="Android" scheme="https://hanyuzhou.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于vue-cli</title>
+    <link href="https://hanyuzhou.com/2017/03/05/about-vue-cli/"/>
+    <id>https://hanyuzhou.com/2017/03/05/about-vue-cli/</id>
+    <published>2017-03-05T01:38:52.000Z</published>
+    <updated>2017-03-05T02:07:58.373Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g vue-cli  </span><br><span class="line">vue init webpack <span class="keyword">project</span>-<span class="keyword">name</span></span><br><span class="line">cd <span class="keyword">project</span>-<span class="keyword">name</span></span><br><span class="line">npm <span class="keyword">install</span>   </span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure><blockquote><p>注释<br><code>ESLint</code> ES6代码检查器    </p></blockquote><h2 id="项目文件"><a href="#项目文件" class="headerlink" title="项目文件"></a>项目文件</h2><p><code>build</code>和<code>config</code>都是webpack配置相关<br><code>node_modules</code>是<code>npm install</code>安装的以依赖码库<br><code>src</code>存放原码<br><code>static</code>存放第三方静态资源<br><code>.babelrc</code>将ES6编译成ES5<br><code>editorconfig</code>编辑器的配置</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cl
+      
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://hanyuzhou.com/tags/vue-js/"/>
+    
+      <category term="vue-cli" scheme="https://hanyuzhou.com/tags/vue-cli/"/>
+    
+      <category term="JavaScript" scheme="https://hanyuzhou.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google Voice的用途</title>
+    <link href="https://hanyuzhou.com/2017/02/21/uses-of-Google-Voice/"/>
+    <id>https://hanyuzhou.com/2017/02/21/uses-of-Google-Voice/</id>
+    <published>2017-02-21T11:14:35.000Z</published>
+    <updated>2018-01-27T15:21:53.732Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="这篇文章用来测试"><a href="#这篇文章用来测试" class="headerlink" title="这篇文章用来测试"></a>这篇文章用来测试</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;这篇文章用来测试&quot;&gt;&lt;a href=&quot;#这篇文章用来测试&quot; class=&quot;headerlink&quot; title=&quot;这篇文章用来测试&quot;&gt;&lt;/a&gt;这篇文章用来测试&lt;/h1&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="Google" scheme="https://hanyuzhou.com/tags/Google/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS设备不越狱安装TIM</title>
+    <link href="https://hanyuzhou.com/2017/02/05/how-to-install-TIM-without-jailbreak/"/>
+    <id>https://hanyuzhou.com/2017/02/05/how-to-install-TIM-without-jailbreak/</id>
+    <published>2017-02-05T02:56:30.000Z</published>
+    <updated>2017-02-05T05:05:04.334Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>腾讯TIM和之前的TM2013、QQ轻聊版、国际版等似乎有相似之处，但又有本质不同。TIM不仅是给普通QQ瘦身，更是增加了“肌肉”，比如协作文档、邮件和日程等，这既做到了轻聊，又能够为提高工作效率添砖加瓦，让用户在上班的时候也能“任性聊QQ”。</p></blockquote><h2 id="安装之前"><a href="#安装之前" class="headerlink" title="安装之前"></a>安装之前</h2><p>安装TIM之前需要用电脑下载如下内容，并将iOS设备链接到电脑（需要有iTunes环境）</p><ul><li>腾讯TIM <a href="https://eim.connect.qq.com/down/tim.ipa" target="_blank" rel="noopener">链接</a></li><li>Cydia impactor <a href="http://pan.baidu.com/s/1sl5yUYx" target="_blank" rel="noopener">链接</a> 密码:vccp</li></ul><h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><ul><li>解压并运行Cydia impactor</li><li>拖动下载好的ipa到Cydia impactor里</li></ul><p><img src="https://ws1.sinaimg.cn/large/77ce63b1ly1fcfhfekwkaj20d203it8o" alt=""></p><ul><li>输入你的AppleID和密码，用于申请临时证书。若AppleID开启了二次验证，到<a href="https://appleid.apple.com" target="_blank" rel="noopener">Apple官网</a>生成app专用密码进行登陆</li></ul><p><img src="https://ws1.sinaimg.cn/large/77ce63b1ly1fcfgtfwedbj209704edfn" alt=""><br><img src="https://ws1.sinaimg.cn/large/77ce63b1ly1fcfgtmngubj209a04gweb" alt=""></p><ul><li>安装过程中会弹出一个警告，点击OK，之后Cydia impactor会先对此App进行签名，然后会自动将签名后的App安装到设备中</li><li>然后在手机中一次点击设置-通用-描述文件与设备管理。可以看到开发者应用下有一个你的AppleID，点击并进入，信任应用即可。<br><img src="https://ws1.sinaimg.cn/mw690/77ce63b1ly1fcfhq7lscwj20hs0vkq4e" alt=""><br><img src="https://ws1.sinaimg.cn/mw690/77ce63b1ly1fcfhqlhh1nj20hs0vktb8" alt=""><br><img src="https://ws1.sinaimg.cn/mw690/77ce63b1ly1fcfhqzp87aj20hs0vkwg3" alt=""><br><img src="https://ws1.sinaimg.cn/mw690/77ce63b1ly1fcfhrffgm5j20hs0vk12l" alt=""></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;腾讯TIM和之前的TM2013、QQ轻聊版、国际版等似乎有相似之处，但又有本质不同。TIM不仅是给普通QQ瘦身，更是增加了“肌肉”，比如协作文档、邮件和日程等，这既做到了轻聊，又能够为提高工作效率添砖加瓦，让用户在上班的时候也能“任性聊QQ”。&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="https://hanyuzhou.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 数据类型</title>
+    <link href="https://hanyuzhou.com/2017/02/04/javascript-data-type/"/>
+    <id>https://hanyuzhou.com/2017/02/04/javascript-data-type/</id>
+    <published>2017-02-04T14:00:00.000Z</published>
+    <updated>2017-02-05T05:05:01.787Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JavaScript-数据类型"><a href="#JavaScript-数据类型" class="headerlink" title="JavaScript 数据类型"></a>JavaScript 数据类型</h2><p>JavaScript是一个弱类型语言，具有基本类型和引用类型。对于JavaScript来说，万物皆对象（对象是拥有属性和方法的数据，属性是与对象相关的值，方法是能够在对象上的操作）</p><h3 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h3><ul><li>基本类型：Undefined/Null/Boolean/Number/String/Symbol</li><li>引用类型：Object/Array/Function/Date/RegExp…</li></ul><h3 id="类型的判断"><a href="#类型的判断" class="headerlink" title="类型的判断"></a>类型的判断</h3><p><code>typeof</code>和<code>instanceof</code>这两个操作可以用来判断类型，但是有时会出现问题。<br>基于JavaScript中的万物皆对象，</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 检测对象类型</span></span><br><span class="line"><span class="comment"> * @param: obj &#123;JavaScript Object&#125;</span></span><br><span class="line"><span class="comment"> * @param: type &#123;String&#125; 以大写开头的 JS 类型名</span></span><br><span class="line"><span class="comment"> * @return: &#123;Boolean&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is</span>(<span class="params">obj, type</span>)  </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>) === type;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们可以利用<code>is</code>这个函数来判断数据类型</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">is(<span class="string">'sofish'</span>, <span class="string">'String'</span>) <span class="comment">// true  </span></span><br><span class="line">is(<span class="literal">null</span>, <span class="string">'Null'</span>) <span class="comment">// true  </span></span><br><span class="line">is(<span class="keyword">new</span> <span class="built_in">Set</span>(), <span class="string">'Set'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure><h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>JavaScript中的数据类型是可以改变的，如：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="string">'2'</span> <span class="comment">// '12'  </span></span><br><span class="line"><span class="number">1</span> + (+<span class="string">'2'</span>) <span class="comment">// 3  </span></span><br><span class="line"><span class="number">1</span> - <span class="string">'2'</span> <span class="comment">// -1</span></span><br></pre></td></tr></table></figure><p>在JS中，<code>+</code>具有双重角色，在上面的第二个例子当中，<code>String</code>前面的<code>+</code>把其强制转换为<code>Number</code>。对于JS的类型转化通常理解<code>+</code>具有双重角色即可</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JavaScript-数据类型&quot;&gt;&lt;a href=&quot;#JavaScript-数据类型&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 数据类型&quot;&gt;&lt;/a&gt;JavaScript 数据类型&lt;/h2&gt;&lt;p&gt;JavaScript是一个弱类型语言
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://hanyuzhou.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Example Post using Keynote Layout</title>
+    <link href="https://hanyuzhou.com/2015/07/09/js-module-7day/"/>
+    <id>https://hanyuzhou.com/2015/07/09/js-module-7day/</id>
+    <published>2015-07-08T16:00:00.000Z</published>
+    <updated>2018-02-07T03:40:23.210Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>下滑这里查看更多内容</p></blockquote><p>7月9日，我在公司内部进行了名为「JavaScript 模块化七日谈」分享，并将该 Slides 分享到了微博上。出乎意料地，这篇微博先后被 @JS小组 @尤小右 @寸志 等近 200 人转发，阅读达到 10w，获得了还不错的评价。</p><p>于是，我决定将它重新发到我的博客上，并为它专门制作了适用于 Keynote 展示文稿的新布局。它能自动根据屏幕大小/旋转以一定比例填充屏幕，你也可以直接点击下方链接在新页面打开，来获得更好的、沉浸式的全屏体验</p><h3 id="Watch-Slides-→"><a href="#Watch-Slides-→" class="headerlink" title="Watch Slides →"></a><a href="http://huangxuan.me/js-module-7day" target="_blank" rel="noopener">Watch Slides →</a></h3><p><img src="http://huangxuan.me/js-module-7day/attach/qrcode.png" width="350" height="350"></p><p><small class="img-hint">你也可以通过扫描二维码在手机上观看</small></p><p>这个 Web Slides 开源在<a href="https://github.com/Huxpro/js-module-7day" target="_blank" rel="noopener">我的 Github 上</a>，欢迎你帮助我完善这个展示文稿，你可以给我提 issue，可以 fork &amp; pull request。如果它能帮助到你了，希望你还能不吝啬 star 一下这个项目</p><h3 id="Catalog"><a href="#Catalog" class="headerlink" title="Catalog"></a>Catalog</h3><ul><li>第一日 上古时期 <strong><em>Module?</em></strong> 从设计模式说起</li><li>第二日 石器时代 <strong><em>Script Loader</em></strong> 只有封装性可不够，我们还需要加载</li><li>第三日 蒸汽朋克 <strong><em>Module Loader</em></strong> 模块化架构的工业革命</li><li>第四日 号角吹响 <strong><em>CommonJS</em></strong> 征服世界的第一步是跳出浏览器</li><li>第五日 双塔奇兵 <strong><em>AMD/CMD</em></strong> 浏览器环境模块化方案</li><li>第六日 精灵宝钻 <strong><em>Browserify/Webpack</em></strong> 大势所趋，去掉这层包裹！</li><li>第七日 王者归来 <strong><em>ES6 Module</em></strong> 最后的战役</li></ul><h3 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h3><p><a href="http://lab.hakim.se/reveal-js" target="_blank" rel="noopener">Reveal.js</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;下滑这里查看更多内容&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;7月9日，我在公司内部进行了名为「JavaScript 模块化七日谈」分享，并将该 Slides 分享到了微博上。出乎意料地，这篇微博先后被 @JS小组 @尤小右 @寸志 等近 200
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://hanyuzhou.com/tags/JavaScript/"/>
+    
+      <category term="前端开发" scheme="https://hanyuzhou.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Example Post With Default Header Image</title>
+    <link href="https://hanyuzhou.com/2015/04/14/unix-linux-note/"/>
+    <id>https://hanyuzhou.com/2015/04/14/unix-linux-note/</id>
+    <published>2015-04-13T16:00:00.000Z</published>
+    <updated>2018-02-07T03:40:23.217Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>This document is not completed and will be updated anytime.</p></blockquote><h2 id="Catagory"><a href="#Catagory" class="headerlink" title="Catagory"></a>Catagory</h2><ol><li><a href="#unix">Unix</a><ol><li><a href="#bell-labs">Bell Labs</a></li><li><a href="#xenix">Xenix</a></li><li><a href="#bsd">BSD</a></li><li><a href="#freebsd--apple">FreeBSD &amp; Apple</a></li><li><a href="#nextstep">NeXTStep</a></li><li><a href="#darwin">Darwin</a></li><li><a href="#posix">POSIX</a></li></ol></li><li><a href="#unix-like">Unix-like</a><ol><li><a href="#single-unix-specification">Single Unix Specification</a></li><li><a href="#apple-ios">Apple iOS</a></li><li><a href="#xnu-kernel">XNU Kernel</a></li></ol></li><li><a href="#linux">Linux</a><ol><li><a href="#linux-kernel">Linux Kernel</a></li><li><a href="#gnu-project">GNU Project</a></li><li><a href="#android">Android</a></li><li><a href="#android-kernel">Android Kernel</a></li><li><a href="#android-rom">Android ROM</a></li><li><a href="#chrome-os">Chrome OS</a></li><li><a href="#chromium-os">Chromium OS</a></li></ol></li></ol><hr><h2 id="Unix"><a href="#Unix" class="headerlink" title="Unix"></a>Unix</h2><blockquote><p>Unix is a <strong>family</strong> of multitasking, multiuser computer OS.</p></blockquote><p>Derive from the original <strong>AT&amp;T Unix</strong>, Developed in the 1970s at <strong>Bell Labs</strong> (贝尔实验室), initially intended for use inside the <strong>Bell System</strong>.</p><ul><li><h4 id="Bell-Labs"><a href="#Bell-Labs" class="headerlink" title="Bell Labs"></a>Bell Labs</h4>Bell 和 AT&amp;A 在那时已经是一家了，可以看到那时的通信公司真是一线 IT 公司呢。<br><strong>C 语言也是 Bell Labs 的产物</strong>，从一开始就是为了用于 Unix 而设计出来的。所以 Unix （在 73 年用 C 重写）在高校流行后，C 语言也获得了广泛支持。</li></ul><p>AT&amp;T licensed Unix to outside parties(第三方) from the late 1970s, leading to a variety of both <strong>academic</strong> (最有有名的 BSD ) and <strong>commercial</strong> (Microsoft Xenix, IBM AIX, SunOS Solaris)</p><ul><li><h4 id="Xenix"><a href="#Xenix" class="headerlink" title="Xenix"></a>Xenix</h4><p>微软 1979 年从 AT&amp;A 授权来的 Unix OS，配合着 x86 成为当时最受欢迎的 Unix 发行版。后来 M$ 和 IBM 合作开发 OS/2 操作系统后放弃，后来最终转向 <strong>Windows NT</strong>。</p></li><li><h4 id="BSD"><a href="#BSD" class="headerlink" title="BSD"></a>BSD</h4><p><strong>Barkeley Software Distribution</strong>, also called Berkeley Unix. Today the term “BSD” is used to refer to any of the BSD descendants(后代) which together form a branch of the family of Unix-like OS.(共同组成了一个分支)</p><ul><li><strong>BSD 最大的贡献是在 BSD 中率先增加了虚拟存储器和 Internet 协议</strong>，其 TCP/IP(IPv4 only) 代码仍然在现代 OS 上使用（ Microsoft Windows and most of the foundation of Apple’s OS X and iOS ）</li><li>BSD 后来发展出了众多开源后代，包括 FreeBSD, OpenBSD, NetBSD 等等……很多闭源的 vendor Unix 也都从 BSD 衍生而来。</li></ul></li><li><h4 id="FreeBSD-amp-Apple"><a href="#FreeBSD-amp-Apple" class="headerlink" title="FreeBSD &amp; Apple"></a>FreeBSD &amp; Apple</h4><p>FreeBSD 不但是 Open Source BSD 中占有率最高的，还直接影响了 Apple Inc : NeXT Computer 的团队在 FreeBSD 上衍生出了 NeXTSTEP 操作系统，这货后来在 Apple 时期演化成了 <strong>Darwin</strong> ，这个“达尔文”居然还是个开源系统，而且是 the Core of <strong>Mac OS X</strong> and <strong>iOS</strong>.</p></li><li><h4 id="NeXTSTEP"><a href="#NeXTSTEP" class="headerlink" title="NeXTSTEP"></a>NeXTSTEP</h4><p>An <strong>object-oriented</strong>, multitasking OS. Low-level C but High-level OC language and runtime the first time, combined with an <strong>OO aplication layer</strong> and including several “kits”.<br>大家都知道 NeXT 是 Steve Jobs 被 forced out of Apple 后和 a few of his coworkers 创办的，所以 <strong>NeXTSTEP 绝对是证明 Jobs 实力的作品。</strong></p></li><li><h4 id="Darwin"><a href="#Darwin" class="headerlink" title="Darwin"></a>Darwin</h4><p><a href="http://en.wikipedia.org/wiki/Darwin_(operating_system\" target="_blank" rel="noopener">Darwin</a>), the core set of components upon which Mac OS X and iOS based, mostly POSIX compatible, but has never, by itself, been certified as being compatible with any version of <strong>POSIX</strong>. (OS X, since Leopard, has been certified as compatible with the Single UNIX Specification version 3)<br><strong>所以说 Mac OS X 算是很正统 Unix 的了</strong></p></li><li><h4 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h4><p>可移植操作系统接口, Portable Operating System Interface, is a family of standards specified by the IEEE from maintaining compatibility between OS, defines the API along with Command Line Shells and utility interfaces, for software comaptibility with variants of Unix and other OS.</p><ul><li>Fully POSIX compliant:<ul><li>OS X</li><li>QNX OS (BlackBerry)</li></ul></li><li>Mostly complicant:<ul><li>Linux</li><li>OpenBSD/FreeBSD</li><li>Darwin (Core of <strong>iOS</strong> &amp; OS X)</li><li><strong>Android</strong></li></ul></li><li>Complicant via compatibility feature （通过兼容功能实现兼容）<ul><li>Windows NT Kernel<ul><li>Windows Server 2000, 2003, 2008, 2008 R2, 2012</li></ul></li><li>Symbian OS (with PIPS)<ul><li>Symbian was a closed-source OS.</li></ul></li></ul></li></ul></li></ul><hr><h2 id="Unix-like"><a href="#Unix-like" class="headerlink" title="Unix-like"></a>Unix-like</h2><blockquote><p>A Unix-like (sometimes referred to as UN<em>X or </em>nix) operating system is one that behaves in a manner similar to a Unix system, while not necessarily conforming to or being certified to any version of the <strong>Single UNIX Specification</strong>.</p></blockquote><p>There is no standard for defining the term.<br>其实 Unix-like 是个相对模糊的概念：</p><ul><li>最狭义的 Unix 单指 Bell Labs’s Unix</li><li>稍广义的 Unix 指代所有 Licensed Unix, 即通过了 SUS 的 Unix-like ，比如 OS X</li><li>最广义的 Unix 即所有 Unix-like 系统，无论它是否通过过任何 SUS，包括 Linux，BSD Family 等</li></ul><h4 id="Single-UNIX-Specification"><a href="#Single-UNIX-Specification" class="headerlink" title="Single UNIX Specification"></a>Single UNIX Specification</h4><p>The Single UNIX Specification (SUS) is the collective name of a family of standards for computer OS, compliance with which is required to <strong>qualify for the name “Unix”</strong>, like <strong>POSIX</strong>.</p><h4 id="Apple-iOS"><a href="#Apple-iOS" class="headerlink" title="Apple iOS"></a>Apple iOS</h4><p>iOS is a <strong>Unix-like OS based on Darwin(BSD)</strong> and OS X, which share some frameworks including Core Foundation, Founadtion and the Darwin foundation with OS X, but, Unix-like shell access is not avaliable for users and restricted for apps, <strong>making iOS not fully Unix-compatible either.</strong></p><p>The iOS kernal is <strong>XNU</strong>, the kernal of Darwin.</p><h4 id="XNU-Kernel"><a href="#XNU-Kernel" class="headerlink" title="XNU Kernel"></a>XNU Kernel</h4><p>XNU, the acronym(首字母缩写) for <strong><em>X is Not Unix</em></strong>, which is the <strong>Computer OS Kernel</strong> developed at Apple Inc since Dec 1996 for use in the Mac OS X and released as free open source software as part of Darwin.</p><hr><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><blockquote><p>Linux is a Unix-like and mostly POSIX-compliant computer OS.</p></blockquote><p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Unix_timeline.en.svg/800px-Unix_timeline.en.svg.png" alt="Unix_timeline"></p><h4 id="Linux-Kernel"><a href="#Linux-Kernel" class="headerlink" title="Linux Kernel"></a>Linux Kernel</h4><p>严格来讲，术语 Linux 只表示 <a href="http://en.wikipedia.org/wiki/Linux_kernel" target="_blank" rel="noopener">Linux Kernel</a> 操作系统内核本身，比如说 Android is Based on Linux (Kernel). Linus 编写的也只是这一部分，一个免费的 Unix-like Kernel，并不属于 GNU Project 的一部分。</p><p>但通常把 Linux 作为 Linux Kernel 与大量配合使用的 GNU Project Software Kit (包括 Bash, Lib, Compiler, 以及后期的 GUI etc) 所组合成的 OS 的统称。（包括各类 Distribution 发行版）</p><p>这类操作系统也被称为 <strong>GNU/Linux</strong></p><h4 id="GNU-Project"><a href="#GNU-Project" class="headerlink" title="GNU Project"></a>GNU Project</h4><p>The GNU Project is a <strong>free software, mass collaboration</strong> project, which based on the following freedom rights:</p><ul><li>Users are free to run the software, share (copy, distribute), study and modify it.</li><li>GNU software guarantees these freedom-rights legally (via its license).</li><li>So it is not only FREE but, more important, FREEDOM.</li></ul><p>In order to ensure that the <em>entire</em> software of a computer grants its users all freedom rights (use, share, study, modify), even the most fundamental and important part, <strong>the operating system</strong>, needed to be written.</p><p>This OS is decided to called <strong>GNU (a recursive acronym meaning “GNU is not Unix”)</strong>. By 1992, the GNU Project had completed all of the major OS components except for their kernel, <em>GNU Hurd</em>.</p><p>With the release of the third-party <strong>Linux Kernel</strong>, started independently by <em>Linus Torvalds</em> in 1991 and released under the GPLv0.12 in 1992, for the first time it was possible to run an OS <strong>composed completely of free software</strong>.</p><p>Though the Linux kernel is not part of the GNU project, it was developed using GCC and other GNU programming tools and was released as free software under the GPL.</p><p>Anyway, there eventually comes to the <strong>GNU/Linux</strong></p><ul><li><strong>GPL</strong>: GNU General Public License</li><li><strong>GCC</strong>: GNU Compiler Collection</li></ul><p>其他与 GPL 相关的自由/开源软件公共许可证：</p><ul><li><a href="http://en.wikipedia.org/wiki/Mozilla_Public_License" target="_blank" rel="noopener">Mozilla Public License</a></li><li><a href="http://en.wikipedia.org/wiki/MIT_License" target="_blank" rel="noopener">MIT License</a></li><li><a href="http://en.wikipedia.org/wiki/BSD_licenses" target="_blank" rel="noopener">BSD Public License</a><ul><li>GPL 强制后续版本必须是自由软件，而 BSD 的后续可以选择继续开源或者封闭</li></ul></li><li><a href="http://en.wikipedia.org/wiki/Apache_License" target="_blank" rel="noopener">Apache License</a></li></ul><p><img src="http://dl2.iteye.com/upload/attachment/0047/4142/d770c85a-49b7-3c7f-8ae2-cbb6451e00d8.png" alt="Public License"></p><h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>Android is a mobile OS based on <strong>Linux Kernel</strong>, so it’s definitely <strong>Unix-like</strong>.  </p><p><strong>Linux is under GPL so Android has to be open source</strong>.<br>Android’s source code is released by Google under open source licenses, although most Android devices ultimately ship with a combination of open source and proprietary software, including proprietary software developed and licensed by Google <em>(GMS are all proprietary)</em>  </p><h4 id="Android-Kernel"><a href="#Android-Kernel" class="headerlink" title="Android Kernel"></a>Android Kernel</h4><p>Android’s kernel is based on one of the Linux kernel’s long-term support (LTS) branches.   </p><p><strong>Android’s variant of the Linux kernel</strong> has further architectural changes that are implemented by Google outside the typical Linux kernel development cycle, and, certain features that Google contributed back to the Linux kernel. Google maintains a public code repo that contains their experimental work to re-base Android off the latest stable Linux versions.</p><p>Android Kernel 大概是 Linux Kernel 最得意的分支了，Android 也是 Linux 最流行的发行版。不过，也有一些 Google 工程师认为 Android is not Linux in the traditional Unix-like Linux distribution sense. 总之这类东西就算有各种协议也还是很难说清楚，在我理解里 Android Kernel 大概就是 fork Linux Kernel 之后改动和定制比较深的例子。</p><h4 id="Android-ROM"><a href="#Android-ROM" class="headerlink" title="Android ROM"></a>Android ROM</h4><p>既然提到 Android 就不得不提提 Android ROM</p><p>ROM 的本义实际上是只读内存：  </p><p><strong>Read-only memory</strong> (ROM) is a class of storage medium used in computers and other electronic devices. Data stored in ROM can only be modified slowly, with difficulty, or not at all, so it is <strong>mainly used to distribute firmware (固件)</strong> (software that is very closely tied to specific hardware, and unlikely to need frequent updates).</p><p>ROM 在发展的过程中不断进化，从只读演变成了可编程可擦除，并最终演化成了 Flash  </p><ul><li>PROM (Programmable read-only memory)</li><li>EPROM (Erasable programmable read-only memory)</li><li>EEPROM (Electrically erasable programmable read-only memory)<ul><li>Flash memory (闪存)</li></ul></li></ul><p>Flash 的出现是历史性的，它不但可以作为 ROM 使用，又因其极高的读写速度和稳定性，先后发展成为U盘（USB flash drives）、移动设备主要内置存储，和虐机械硬盘几条街的固态硬盘（SSD），可以说这货基本统一了高端存储市场的技术规格。</p><p>所以我们平时习惯说的 ROM 其实还是来源于老单片机时代，那时的 ROM 真的是写了就很难（需要上电复位）、甚至无法修改，所以那时往 ROM 里烧下去的程序就被称作 firmware ，固件。久而久之，虽然技术发展了，固件仍然指代那些不常需要更新的软件，而 ROM 这个词也就这么沿用下来了。</p><p>所以在 wiki 里是没有 Android ROM 这个词条的，只有 <a href="http://en.wikipedia.org/wiki/List_of_custom_Android_firmwares" target="_blank" rel="noopener">List of custom Android firmwares</a></p><blockquote><p>A custom firmware, also known as a custom ROM, ROM, or custom OS, is an aftermarket distribution of the Android operating system. They are based on the Android Open Source Project (AOSP), hence most are open-sourced releases, unlike proprietary modifications by device manufacturers.</p></blockquote><p>各类 Android ROM 在 Android 词类下也都是属于 <strong>Forks and distributions</strong> 一类的。</p><p>所以我说，其实各类 Android ROM 也好，fork Android 之流的 YunOS、FireOS 也好，改了多少东西，碰到多深的 codebase ……<strong>其实 ROM 和 Distribution OS 的界限是很模糊的</strong>，为什么 Android 就不可以是移动时代的 Linux ，为什么 Devlik/ART 就不能是移动时代的 GCC 呢？</p><h4 id="Chrome-OS"><a href="#Chrome-OS" class="headerlink" title="Chrome OS"></a>Chrome OS</h4><p>Chrome OS is an operating system based on the <strong>Linux kernel</strong> and designed by Google to work with web applications and installed applications.</p><p>虽然目前只是个 Web Thin Client OS ，但是 RoadMap 非常酷……</p><ul><li><strong>Chrome Packaged Application</strong> (Support working offline and installed)</li><li><strong>Android App Runtime</strong> (run Android applications natively…fxxking awesome)</li></ul><p>平复一下激动的心情，还是回到正题来：</p><h4 id="Chromium-OS"><a href="#Chromium-OS" class="headerlink" title="Chromium OS"></a>Chromium OS</h4><p>Chrome OS is based on Chromium OS, which is the open-source development version of Chrome OS, which is a <strong>Linux distribution</strong> designed by Google.</p><p>For Detail, Chromium OS based on <a href="http://en.wikipedia.org/wiki/Gentoo_Linux" target="_blank" rel="noopener">Gentoo Linux</a>, emm…</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;This document is not completed and will be updated anytime.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Catagory&quot;&gt;&lt;a href=&quot;#Catagory&quot; class=&quot;h
+      
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://hanyuzhou.com/tags/OS/"/>
+    
+      <category term="Unix" scheme="https://hanyuzhou.com/tags/Unix/"/>
+    
+      <category term="Linux" scheme="https://hanyuzhou.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Example Post</title>
+    <link href="https://hanyuzhou.com/2014/09/22/js-version/"/>
+    <id>https://hanyuzhou.com/2014/09/22/js-version/</id>
+    <published>2014-09-21T16:00:00.000Z</published>
+    <updated>2018-02-07T03:40:23.213Z</updated>
+    
+    <content type="html"><![CDATA[<p>JavaScript 有着很奇怪的命名史。</p><p>1995 年，它作为网景浏览器（Netscape Navigator）的一部分首次发布，网景给这个新语言命名为 LiveScript。一年后，为了搭上当时媒体热炒 Java 的顺风车，临时改名为了 JavaScript <em>（当然，Java 和 JavaScript 的关系，就和雷锋和雷锋塔一样 —— 并没有什么关系）</em></p><p><img src="javascript-java.jpg" alt="java-javascript"><br><small class="img-hint">歪果仁的笑话怎么一点都不好笑</small></p><blockquote><p>译者注：<a href="https://en.wikipedia.org/wiki/JavaScript#History" target="_blank" rel="noopener">wikipedia 的 JavaScript 词条</a> 更详细的叙述了这段历史</p></blockquote><p>1996 年，网景将 JavaScript 提交给 <a href="http://www.ecma-international.org/" target="_blank" rel="noopener">ECMA International（欧洲计算机制造商协会）</a> 进行标准化，并最终确定出新的语言标准，它就是 ECMAScript。自此，ECMAScript 成为所有 JavaScript 实现的基础，不过，由于 JavaScript 名字的历史原因和市场原因（很显然 ECMAScript 这个名字并不令人喜欢……），现实中我们只用 ECMAScript 称呼标准，平时都还是使用 JavaScript 来称呼这个语言。</p><blockquote><p>术语（译者注）：</p><ul><li><em>标准（Standard）</em>： 用于定义与其他事物区别的一套规则</li><li><em>实现（Implementation）</em>： 某个标准的具体实施/真实实践</li></ul></blockquote><p>不过，JavaScript 开发者们并不怎么在乎这些，因为在诞生之后的 15 年里，ECMAScript 并没有多少变化，而且现实中的很多实现都已经和标准大相径庭。其实在第一版的 ECMAScript 发布后，很快又跟进发布了两个版本，但是自从 1999 年 ECMAScript 3 发布后，十年内都没有任何改动被成功添加到官方规范里。取而代之的，是各大浏览器厂商们争先进行自己的语言拓展，web 开发者们别无选择只能去尝试并且支持这些 API。即使是在 2009 年 ECMAScript 5 发布之后，仍然用了数年这些新规范才得到了浏览器的广泛支持，可是大部分开发者还是写着 ECMAScript 3 风格的代码，并不觉得有必要去了解这些规范。</p><blockquote><p>译者注：<a href="https://en.wikipedia.org/wiki/ECMAScript#4th_Edition_.28abandoned.29" target="_blank" rel="noopener">ECMAScript 第四版草案</a>由于太过激进而被抛弃，Adobe 的 <a href="https://en.wikipedia.org/wiki/ActionScript" target="_blank" rel="noopener">ActionScript 3.0</a> 是 ECMAScript edition 4 的唯一实现（ Flash 差点就统一 Web 了）</p></blockquote><p>到了 2012 年，事情突然开始有了转变。大家开始推动停止对旧版本 IE 浏览器的支持，用 ECMAScript 5 (ES5) 风格来编写代码也变得更加可行。与此同时，一个新的 ECMAScript 规范也开始启动。到了这时，大家开始逐渐习惯以对 ECMAScript 规范的版本支持程度来形容各种 JavaScript 实现。在正式被指名为 ECMAScript 第 6 版 (ES6) 之前，这个新的标准原本被称为 ES.Harmony（和谐）。2015 年，负责制定 ECMAScript 规范草案的委员会 TC39 决定将定义新标准的制度改为一年一次，这意味着每个新特性一旦被批准就可以添加，而不像以往一样，规范只有在整个草案完成，所有特性都没问题后才能被定稿。因此，ECMAScript 第 6 版在六月份公布之前，又被重命名为了 ECMAScript 2015（ES2015）</p><p>目前，仍然有很多新的 JavaScript 特性或语法正在提议中，包括 <a href="https://github.com/wycats/javascript-decorators" target="_blank" rel="noopener">decorators（装饰者）</a>，<a href="https://github.com/lukehoban/ecmascript-asyncawait" target="_blank" rel="noopener">async-await（async-await 异步编程模型）</a> 和 <a href="https://github.com/jeffmo/es-class-properties" target="_blank" rel="noopener">static class properties（静态类属性）</a>。它们通常被称为 ES7，ES2016 或者 ES.Next 的特性，不过实际上它们只能被称作提案或者说可能性，毕竟 ES2016 的规范还没有完成，有可能全部都会引入，也有可能一个都没有。TC39 把一个提案分为 4 个阶段，你可以在 <a href="https://babeljs.io/docs/usage/experimental/" target="_blank" rel="noopener">Babel 的官网</a> 上查看各个提案目前都在哪个阶段了。</p><p>所以，我们该如何使用这一大堆术语呢？下面的列表或许能帮助到你：</p><ul><li><strong>ECMAScript</strong>：一个由 ECMA International 进行标准化，TC39 委员会进行监督的语言。通常用于指代标准本身。</li><li><strong>JavaScript</strong>：ECMAScript 标准的各种实现的最常用称呼。这个术语并不局限于某个特定版本的 ECMAScript 规范，并且可能被用于任何不同程度的任意版本的 ECMAScript 的实现。</li><li><strong>ECMAScript 5 (ES5)</strong>：ECMAScript 的第五版修订，于 2009 年完成标准化。这个规范在所有现代浏览器中都相当完全的实现了。</li><li><strong>ECMAScript 6 (ES6) / ECMAScript 2015 (ES2015)</strong>：ECMAScript 的第六版修订，于 2015 年完成标准化。这个标准被部分实现于大部分现代浏览器。可以查阅<a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">这张兼容性表</a>来查看不同浏览器和工具的实现情况。</li><li><strong>ECMAScript 2016</strong>：预计的第七版 ECMAScript 修订，计划于明年夏季发布。这份规范具体将包含哪些特性还没有最终确定</li><li><strong>ECMAScript Proposals</strong>：被考虑加入未来版本 ECMAScript 标准的特性与语法提案，他们需要经历五个阶段：Strawman（稻草人），Proposal（提议），Draft（草案），Candidate（候选）以及 Finished （完成）。</li></ul><p>在这整个 Blog 中，我将把目前的 ECMAScript 版本称作 ES6（因为这是大部分开发者最习以为常的），把明年的规范称作 ES2016（因为，与 ES6/ES2015 不同，这个名字将在整个标准化过程中沿用）并且将那些还没有成为 ECMAScript 定稿或草案的未来语言概念称为 ECMAScript 提案或者 JavaScript 提案。我将尽我所能在任何可能引起困惑的场合沿用这篇文章。</p><h4 id="一些资源"><a href="#一些资源" class="headerlink" title="一些资源"></a>一些资源</h4><ul><li>TC39 的 <a href="https://github.com/tc39/ecma262" target="_blank" rel="noopener">Github 仓库</a>上可以看到所有目前公开的提案</li><li>如果你还不熟悉 ES6，Babel 有一个<a href="https://babeljs.io/docs/learn-es2015/" target="_blank" rel="noopener">很不错的特性概览</a></li><li>如果你希望深入 ES6，这里有两本很不错的书： Axel Rauschmayer 的 <a href="http://exploringjs.com/" target="_blank" rel="noopener">Exploring ES6</a>和 Nicholas Zakas 的 <a href="https://leanpub.com/understandinges6" target="_blank" rel="noopener">Understanding ECMAScript 6</a>。Axel 的博客 <a href="http://www.2ality.com/" target="_blank" rel="noopener">2ality</a> 也是很不错的 ES6 资源</li></ul><p><img class="shadow" width="320" src="keep-calm-and-learn-javascript.png"><br><small class="img-hint">来学 JavaScript 吧！</small></p><h4 id="著作权声明"><a href="#著作权声明" class="headerlink" title="著作权声明"></a>著作权声明</h4><p>本文译自 <a href="http://benmccormick.org/2015/09/14/es5-es6-es2016-es-next-whats-going-on-with-javascript-versioning/" target="_blank" rel="noopener">ES5, ES6, ES2016, ES.Next: What’s going on with JavaScript versioning?</a><br>译者 <a href="http://weibo.com/huxpro" target="_blank" rel="noopener">黄玄</a>，首次发布于 <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux Blog</a>，转载请保留以上链接</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;JavaScript 有着很奇怪的命名史。&lt;/p&gt;
+&lt;p&gt;1995 年，它作为网景浏览器（Netscape Navigator）的一部分首次发布，网景给这个新语言命名为 LiveScript。一年后，为了搭上当时媒体热炒 Java 的顺风车，临时改名为了 JavaScrip
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://hanyuzhou.com/tags/JavaScript/"/>
+    
+      <category term="前端开发" scheme="https://hanyuzhou.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="翻译" scheme="https://hanyuzhou.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Welcome to Hux Blog</title>
+    <link href="https://hanyuzhou.com/2014/01/29/hello-2015/"/>
+    <id>https://hanyuzhou.com/2014/01/29/hello-2015/</id>
+    <published>2014-01-29T04:00:00.000Z</published>
+    <updated>2018-02-07T03:40:23.206Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>“Yeah It’s on. ”</p></blockquote><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hux 的 Blog 就这么开通了。</p><p><a href="#build">跳过废话，直接看技术实现 </a></p><p>2015 年，Hux 总算有个地方可以好好写点东西了。</p><p>作为一个程序员， Blog 这种轮子要是挂在大众博客程序上就太没意思了。一是觉得大部分 Blog 服务都太丑，二是觉得不能随便定制不好玩。之前因为太懒没有折腾，结果就一直连个写 Blog 的地儿都没有。</p><p>在玩了一段时间知乎之后，答题的快感又激起了我开博客的冲动。之前的<a href="http://huangxuan.me/portfolio" target="_blank" rel="noopener">个人网站</a>是作品集形式的（现在集成进来了），并不适合用来写博文，一不做二不休，花一天搞一个吧！</p><h2 id=""><a href="#" class="headerlink" title=""></a><p id="build"></p></h2><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>接下来说说搭建这个博客的技术细节。  </p><p>正好之前就有关注过 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> + <a href="http://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a> 快速 Building Blog 的技术方案，非常轻松时尚。</p><p>其优点非常明显：</p><ul><li><strong>Markdown</strong> 带来的优雅写作体验</li><li>非常熟悉的 Git workflow ，<strong>Git Commit 即 Blog Post</strong></li><li>利用 GitHub Pages 的域名和免费无限空间，不用自己折腾主机<ul><li>如果需要自定义域名，也只需要简单改改 DNS 加个 CNAME 就好了</li></ul></li><li>Jekyll 的自定制非常容易，基本就是个模版引擎</li></ul><p>本来觉得最大的缺点可能是 GitHub 在国内访问起来太慢，所以第二天一起床就到 GitCafe(Chinese GitHub Copy) 迁移了一个<a href="http://huxpro.gitcafe.io" target="_blank" rel="noopener">镜像</a>出来，结果还是巨慢。</p><p>哥哥可是个前端好嘛！ 果断开 Chrome DevTool 查了下网络请求，原来是 <strong>pending 在了 Google Fonts</strong> 上，页面渲染一直被阻塞到请求超时为止，难怪这么慢。<br>忍痛割爱，只好把 Web Fonts 去了（反正超时看到的也只能是 fallback ），果然一下就正常了，而且 GitHub 和 GitCafe 对比并没有感受到明显的速度差异，虽然 github 的 ping 值明显要高一些，达到了 300ms，于是用 DNSPOD 优化了一下速度。</p><hr><p>配置的过程中也没遇到什么坑，基本就是 Git 的流程，相当顺手</p><p>大的 Jekyll 主题上直接 fork 了 Clean Blog（这个主题也相当有名，就不多赘述了。唯一的缺点大概就是没有标签支持，于是我给它补上了。）</p><p>本地调试环境需要 <code>gem install jekyll</code>，结果 rubygem 的源居然被墙了……后来手动改成了我大淘宝的镜像源才成功</p><p>Theme 的 CSS 是基于 Bootstrap 定制的，看得不爽的地方直接在 Less 里改就好了（平时更习惯 SCSS 些），<strong>不过其实我一直觉得 Bootstrap 在移动端的体验做得相当一般，比我在淘宝参与的团队 CSS 框架差多了……</strong>所以为了体验，也补了不少 CSS 进去</p><p>最后就进入了耗时反而最长的<strong>做图、写字</strong>阶段，也算是进入了<strong>写博客</strong>的正轨，因为是类似 Hack Day 的方式去搭这个站的，所以折腾折腾着大半夜就过去了。</p><p>第二天考虑中文字体的渲染，fork 了 <a href="http://www.typeisbeautiful.com/" target="_blank" rel="noopener">Type is Beautiful</a> 的 <code>font</code> CSS，调整了字号，适配了 Win 的渣渲染，中英文混排效果好多了。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>回顾这个博客的诞生，纯粹是出于个人兴趣。在知乎相关问题上回答并获得一定的 star 后，我决定把这个博客主题当作一个小小的开源项目来维护。</p><p>在经历 v1.0 - v1.5 的蜕变后，这个博客主题愈发完整，不但增加了诸多 UI 层的优化（opinionated）；在代码层面，更加丰富的配置项也使得这个主题拥有了更好的灵活性与可拓展性。而作为一个开源项目，我也积极的为其完善文档与解决 issue。</p><p>如果你恰好逛到了这里，希望你也能喜欢这个博客主题。</p><p>—— Hux 后记于 2015.10</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;“Yeah It’s on. ”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Hux 的 Blog 就这么开通了。&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="https://hanyuzhou.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Example Post with Code Highlight</title>
+    <link href="https://hanyuzhou.com/2013/05/25/js-module-loader/"/>
+    <id>https://hanyuzhou.com/2013/05/25/js-module-loader/</id>
+    <published>2013-05-24T16:00:00.000Z</published>
+    <updated>2018-02-07T03:40:23.211Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><blockquote><p>Here comes Module!</p></blockquote><p>随着网站逐渐变成「互联网应用程序」，嵌入网页的 JavaScript 代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试……我们不得不使用软件工程的方法，来管理网页的业务逻辑。</p><p>于是，JavaScript 的模块化成为迫切需求。在 ES6 Module 来临之前，JavaScript 社区提供了强大支持，尝试在现有的运行环境下，实现模块的效果。</p><hr><h2 id="Catalog"><a href="#Catalog" class="headerlink" title="Catalog"></a>Catalog</h2><ol><li><a href="#commonjs--node">CommonJS &amp; Node</a></li><li><a href="#history">History</a></li><li><a href="#requirejs--amd">RequireJS &amp; AMD</a></li><li><a href="#seajs--cmd">SeaJS &amp; CMD</a></li><li><a href="#amd-vs-cmd">AMD vs CMD</a></li><li><a href="#webpack">WebPack</a></li></ol><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">autoDetect</span>()&#123;</span><br><span class="line">    console.log('ye, it <span class="keyword">is</span> written <span class="keyword">in</span> JavaScript!')</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="CommonJS-amp-Node"><a href="#CommonJS-amp-Node" class="headerlink" title="CommonJS &amp; Node"></a>CommonJS &amp; Node</h2><blockquote><p>Javascript: not just for browsers any more! —— CommonJS Slogen</p></blockquote><p>前端模块化的事实标准之一，2009 年 8 月，<a href="http://wiki.commonjs.org/wiki/CommonJS" target="_blank" rel="noopener">CommonJS</a> 诞生。</p><p>CommonJS 本质上只是一套规范（API 定义），而 Node.js 采用并实现了部分规范，CommonJS Module 的写法也因此广泛流行。</p><p>让我们看看 Node 中的实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 由于 Node 原生支持模块的作用域，并不需要额外的 wrapper</span></span><br><span class="line"><span class="comment">// "as though the module was wrapped in a function"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>)  <span class="comment">// 加载模块（同步加载）</span></span><br><span class="line">a.doSomething()         <span class="comment">// 等上一句执行完才会执行</span></span><br><span class="line"></span><br><span class="line">exports.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// 暴露 b 函数接口</span></span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><code>exports</code>是一个内置对象，就像<code>require</code>是一个内置加载函数一样。如果你希望直接赋值一个完整的对象或者构造函数，覆写<code>module.exports</code>就可以了。</p><p>CommonJS 前身叫 ServerJS ，<strong>后来希望能更加 COMMON，成为通吃各种环境的模块规范，改名为 CommonJS</strong> 。CommonJS 最初只专注于 Server-side 而非浏览器环境，因此它采用了同步加载的机制，这对服务器环境（硬盘 I/O 速度）不是问题，而对浏览器环境（网速）来说并不合适。</p><p>因此，各种适用于浏览器环境的模块框架与标准逐个诞生，他们的共同点是：</p><ul><li>采用异步加载（预先加载所有依赖的模块后回调执行，符合浏览器的网络环境）</li><li>虽然代码风格不同，但其实都可以看作 CommonJS Modules 语法的变体。</li><li>都在向着 <strong>COMMON</strong> 的方向进化：<strong>兼容不同风格，兼容浏览器和服务器两种环境</strong></li></ul><p>本文接下来要讨论的典例是：</p><ul><li>RequireJS &amp; AMD（异步加载，预执行，依赖前置。默认推荐 AMD 写法）</li><li>SeaJS &amp; CMD（异步加载，懒执行，依赖就近，默认推荐 CommonJS 写法）</li></ul><h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><!--<h2 id="history"> History </h2>--><blockquote><p>此段落参考自玉伯的 <a href="https://github.com/seajs/seajs/issues/588" target="_blank" rel="noopener">前端模块化开发那点历史</a></p></blockquote><p>09-10 年间，CommonJS（那时还叫 ServerJS） 社区推出 <a href="http://wiki.commonjs.org/wiki/Modules" target="_blank" rel="noopener">Modules/1.0</a> 规范，并且在 Node.js 等环境下取得了很不错的实践。</p><p>09年下半年这帮充满干劲的小伙子们想把 ServerJS 的成功经验进一步推广到浏览器端，于是将社区改名叫 CommonJS，同时激烈争论 Modules 的下一版规范。分歧和冲突由此诞生，逐步形成了三大流派：</p><ol><li><strong>Modules/1.x</strong> 流派。这个观点觉得 1.x 规范已经够用，只要移植到浏览器端就好。要做的是新增 <a href="http://wiki.commonjs.org/wiki/Modules/Transport" target="_blank" rel="noopener">Modules/Transport</a> 规范，即在浏览器上运行前，先通过转换工具将模块转换为符合 Transport 规范的代码。主流代表是服务端的开发人员。现在值得关注的有两个实现：越来越火的 component 和走在前沿的 es6 module transpiler。</li><li><strong>Modules/Async</strong> 流派。这个观点觉得浏览器有自身的特征，不应该直接用 Modules/1.x 规范。这个观点下的典型代表是 <a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition" target="_blank" rel="noopener">AMD</a> 规范及其实现 <a href="http://requirejs.org/" target="_blank" rel="noopener">RequireJS</a>。这个稍后再细说。</li><li><strong>Modules/2.0</strong> 流派。这个观点觉得浏览器有自身的特征，不应该直接用 Modules/1.x 规范，但应该尽可能与 Modules/1.x 规范保持一致。这个观点下的典型代表是 BravoJS 和 FlyScript 的作者。BravoJS 作者对 CommonJS 的社区的贡献很大，这份 Modules/2.0-draft 规范花了很多心思。FlyScript 的作者提出了 Modules/Wrappings 规范，这规范是 CMD 规范的前身。可惜的是 BravoJS 太学院派，FlyScript 后来做了自我阉割，将整个网站（flyscript.org）下线了。这个观点在本文中的典型代表就是 SeaJS 和 CMD 了</li></ol><p>补一嘴：阿里 KISSY 的 KMD 其实跟 AMD 非常类似，只是用 <code>add</code>和<code>use</code> 两个源自于 YUI Modules 的函数名替换了 <code>define</code> 和 <code>require</code> ，但其原理更接近 RequireJS ，与 YUI Modules 的 <code>Y</code> 沙箱 Attach 机制并不相同</p><h2 id="RequireJS-amp-AMD"><a href="#RequireJS-amp-AMD" class="headerlink" title="RequireJS &amp; AMD"></a>RequireJS &amp; AMD</h2><p><a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition" target="_blank" rel="noopener">AMD (Async Module Definition)</a> 是 RequireJS 在推广过程中对模块定义的规范化产出。</p><blockquote><p>RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments</p></blockquote><p>RequireJS 主要解决的还是 CommonJS 同步加载脚本不适合浏览器 这个问题：</p><script src="//gist.github.com/65481dbbf6d16e831a6cc89c3e37e6e5.js?file=display-emails-from-database.php"></script><blockquote><p>As the comment indicates above, if require() is async, this code will not work. However, loading scripts synchronously in the browser kills performance. So, what to do?</p></blockquote><p>所以我们需要 <strong>Function Wrapping</strong> 来获取依赖并且提前通过 script tag 提前加载进来</p><iframe scrolling="no" width="[width]" height="[height]" src="//jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" allowfullscreen></iframe><p>当依赖模块非常多时，这种<strong>依赖前置</strong>的写法会显得有点奇怪，所以 AMD 给了一个语法糖， <strong>simplified CommonJS wrapping</strong>，借鉴了 CommonJS 的 require 就近风格，也更方便对 CommonJS 模块的兼容：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dependency1 = <span class="built_in">require</span>(<span class="string">'dependency1'</span>),</span><br><span class="line">        dependency2 = <span class="built_in">require</span>(<span class="string">'dependency2'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>The AMD loader will parse out the <code>require(&#39;&#39;)</code> calls by using <code>Function.prototype.toString()</code>, then internally convert the above define call into this:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'require'</span>, <span class="string">'dependency1'</span>, <span class="string">'dependency2'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">require</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dependency1 = <span class="built_in">require</span>(<span class="string">'dependency1'</span>),</span><br><span class="line">        dependency2 = <span class="built_in">require</span>(<span class="string">'dependency2'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>出于<code>Function.prototype.toString()</code>兼容性和性能的考虑，最好的做法还是做一次 <strong>optimized build</strong></p><p>AMD 和 CommonJS 的核心争议如下：</p><h3 id="1-执行时机"><a href="#1-执行时机" class="headerlink" title="1. 执行时机"></a>1. <strong>执行时机</strong></h3><p>Modules/1.0:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">"./a"</span>) <span class="comment">// 执行到此时，a.js 才同步下载并执行</span></span><br></pre></td></tr></table></figure><p>AMD: （使用 require 的语法糖时）</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"require"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">require</span>))</span>&#123;</span><br><span class="line">    <span class="comment">// 在这里，a.js 已经下载并且执行好了</span></span><br><span class="line">    <span class="comment">// 使用 require() 并不是 AMD 的推荐写法</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">"./a"</span>) <span class="comment">// 此处仅仅是取模块 a 的 exports</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>AMD 里提前下载 a.js 是出于对浏览器环境的考虑，只能采取异步下载，这个社区都认可（Sea.js 也是这么做的）</p><p>但是 AMD 的执行是 Early Executing，而 Modules/1.0 是第一次 require 时才执行。这个差异很多人不能接受，包括持 Modules/2.0 观点的人也不能接受。</p><h3 id="2-书写风格"><a href="#2-书写风格" class="headerlink" title="2. 书写风格"></a>2. <strong>书写风格</strong></h3><p>AMD 推荐的风格并不使用<code>require</code>，而是通过参数传入，破坏了<strong>依赖就近</strong>：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 提前申明了并初始化了所有模块</span></span><br><span class="line"></span><br><span class="line">    <span class="literal">true</span> || b.foo(); <span class="comment">//即便根本没用到模块 b，但 b 还是提前执行了。</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>不过，在笔者看来，风格喜好因人而异，主要还是<strong>预执行</strong>和<strong>懒执行</strong>的差异。</p><p>另外，require 2.0 也开始思考异步处理<strong>软依赖</strong>（区别于一定需要的<strong>硬依赖</strong>）的问题，提出了这样的方案：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数体内：</span></span><br><span class="line"><span class="keyword">if</span>(status)&#123;</span><br><span class="line">    <span class="keyword">async</span>([<span class="string">'a'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">        a.doSomething()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="SeaJS-amp-CMD"><a href="#SeaJS-amp-CMD" class="headerlink" title="SeaJS &amp; CMD"></a>SeaJS &amp; CMD</h2><p>CMD (Common Module Definition) 是 <a href="http://seajs.org/docs/" target="_blank" rel="noopener">SeaJS</a> 在推广过程中对模块定义的规范化产出，是 Modules/2.0 流派的支持者，因此 SeaJS 的模块写法尽可能与 Modules/1.x 规范保持一致。</p><p>不过目前国外的该流派都死得差不多了，RequireJS 目前成为浏览器端模块的事实标准，国内最有名气的就是玉伯的 Sea.js ，不过对国际的推广力度不够。</p><ul><li>CMD Specification<ul><li><a href="https://github.com/cmdjs/specification/blob/master/draft/module.md" target="_blank" rel="noopener">English (CMDJS-repo)</a></li><li><a href="https://github.com/seajs/seajs/issues/242" target="_blank" rel="noopener">Chinese (SeaJS-repo)</a></li></ul></li></ul><p>CMD 主要有 define, factory, require, export 这么几个东西</p><ul><li>define <code>define(id?, deps?, factory)</code></li><li>factory <code>factory(require, exports, module)</code></li><li>require <code>require(id)</code></li><li>exports <code>Object</code></li></ul><p>CMD 推荐的 Code Style 是使用 CommonJS 风格的 <code>require</code>：</p><ul><li>这个 require 实际上是一个全局函数，用于加载模块，这里实际就是传入而已</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取模块 a 的接口</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>);</span><br><span class="line">    <span class="comment">// 调用模块 a 的方法</span></span><br><span class="line">    a.doSomething();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对外提供 foo 属性</span></span><br><span class="line">    exports.foo = <span class="string">'bar'</span>;</span><br><span class="line">    <span class="comment">// 对外提供 doSomething 方法</span></span><br><span class="line">    exports.doSomething = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>但是你也可以使用 AMD 风格，或者使用 return 来进行模块暴露</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'hello'</span>, [<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模块代码...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 直接通过 return 暴露接口</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        foo: <span class="string">'bar'</span>,</span><br><span class="line">        doSomething: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>Sea.js 借鉴了 RequireJS 的不少东西，比如将 FlyScript 中的 module.declare 改名为 define 等。Sea.js 更多地来自 Modules/2.0 的观点，但尽可能去掉了学院派的东西，加入了不少实战派的理念。</p><h2 id="AMD-vs-CMD"><a href="#AMD-vs-CMD" class="headerlink" title="AMD vs CMD"></a>AMD vs CMD</h2><p><strong>虽然两者目前都兼容各种风格，但其底层原理并不相同，从其分别推荐的写法就可以看出两者背后原理的不同：</strong></p><ol><li>对于依赖的模块，AMD 是<strong>提前执行</strong>，CMD 是<strong>懒执行</strong>。（都是先加载）</li></ol><ul><li>CMD 推崇<strong>依赖就近</strong>，AMD 推崇<strong>依赖前置</strong>。   </li></ul><p>看代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AMD 默认推荐</span></span><br><span class="line"></span><br><span class="line">define([<span class="string">'./a'</span>, <span class="string">'./b'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;  <span class="comment">// 依赖前置，提前执行</span></span><br><span class="line"></span><br><span class="line">    a.doSomething()</span><br><span class="line">    b.doSomething()</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CMD</span></span><br><span class="line"></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>)</span><br><span class="line">    a.doSomething()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'./b'</span>) <span class="comment">// 依赖就近，延迟执行</span></span><br><span class="line">    b.doSomething()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="WebPack"><a href="#WebPack" class="headerlink" title="WebPack"></a>WebPack</h2><blockquote><p>working…</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Foreword&quot;&gt;&lt;a href=&quot;#Foreword&quot; class=&quot;headerlink&quot; title=&quot;Foreword&quot;&gt;&lt;/a&gt;Foreword&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Here comes Module!&lt;/p&gt;
+&lt;/blockquo
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://hanyuzhou.com/tags/JavaScript/"/>
+    
+      <category term="前端开发" scheme="https://hanyuzhou.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+</feed>
