@@ -4,18 +4,16 @@
 
     
   <url>
-    <loc>https://hanyuzhou.com/2015/04/14/unix-linux-note/</loc>
-    <lastmod>2018-02-07T03:40:23.217Z</lastmod>
+    <loc>https://hanyuzhou.com/2018/02/08/awesome-latex/</loc>
+    <lastmod>2018-02-08T15:57:54.496Z</lastmod>
     <data>
         <display>
-        <title>Example Post With Default Header Image</title>
-        <pubTime>2015-04-13T16:00:00.000Z</pubTime>
+        <title>latex实用工具</title>
+        <pubTime>2018-02-08T15:47:13.000Z</pubTime>
         
-        <tag>OS</tag>
+        <tag>latex</tag>
          
-        <tag>Unix</tag>
-         
-        <tag>Linux</tag>
+        <tag>数学建模</tag>
          
          
            
@@ -25,73 +23,18 @@
 
     
   <url>
-    <loc>https://hanyuzhou.com/2014/09/22/js-version/</loc>
-    <lastmod>2018-02-07T03:40:23.213Z</lastmod>
+    <loc>https://hanyuzhou.com/2017/03/05/about-vue-cli/</loc>
+    <lastmod>2018-02-08T15:57:04.076Z</lastmod>
     <data>
         <display>
-        <title>Example Post</title>
-        <pubTime>2014-09-21T16:00:00.000Z</pubTime>
+        <title>关于vue-cli</title>
+        <pubTime>2017-03-05T01:38:52.000Z</pubTime>
         
+        <tag>vue.js</tag>
+         
+        <tag>vue-cli</tag>
+         
         <tag>JavaScript</tag>
-         
-        <tag>前端开发</tag>
-         
-        <tag>翻译</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hanyuzhou.com/2013/05/25/js-module-loader/</loc>
-    <lastmod>2018-02-07T03:40:23.211Z</lastmod>
-    <data>
-        <display>
-        <title>Example Post with Code Highlight</title>
-        <pubTime>2013-05-24T16:00:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-        <tag>前端开发</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hanyuzhou.com/2015/07/09/js-module-7day/</loc>
-    <lastmod>2018-02-07T03:40:23.210Z</lastmod>
-    <data>
-        <display>
-        <title>Example Post using Keynote Layout</title>
-        <pubTime>2015-07-08T16:00:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-        <tag>前端开发</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hanyuzhou.com/2014/01/29/hello-2015/</loc>
-    <lastmod>2018-02-07T03:40:23.206Z</lastmod>
-    <data>
-        <display>
-        <title>Welcome to Hux Blog</title>
-        <pubTime>2014-01-29T04:00:00.000Z</pubTime>
-        
-        <tag>生活</tag>
          
          
            
@@ -295,27 +238,6 @@
         <tag>iOS</tag>
          
         <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hanyuzhou.com/2017/03/05/about-vue-cli/</loc>
-    <lastmod>2017-03-05T02:07:58.373Z</lastmod>
-    <data>
-        <display>
-        <title>关于vue-cli</title>
-        <pubTime>2017-03-05T01:38:52.000Z</pubTime>
-        
-        <tag>vue.js</tag>
-         
-        <tag>vue-cli</tag>
-         
-        <tag>JavaScript</tag>
          
          
            
