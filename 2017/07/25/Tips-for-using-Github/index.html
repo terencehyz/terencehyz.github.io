@@ -100,6 +100,13 @@
 
                         
                         <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/collection/">Collections</a>
                         </li>
                         
@@ -108,13 +115,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -207,7 +207,8 @@
 <h2 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h2><p>文件网址#L行号-L行号</p>
 <blockquote>
 <p>相当于添加了锚点</p>
-</blockquote>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p><code>git subtree push --prefix dist origin gh-pages</code> 将dist部署到gh-page分支<br>/dist 目录需要被 git 记录，于是后面我们才可以用它作为子树（subtree），因此 /dist 不能被 .gitignore 规则排除<br><code>dist</code> 代表子树所在的目录名<br><code>origin</code> 是 remote name<br><code>gh-pages</code> 是目标分支名称</p>
+<h2 id="回退一个版本"><a href="#回退一个版本" class="headerlink" title="回退一个版本"></a>回退一个版本</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD~1</span></span><br><span class="line">git push <span class="comment">--force</span></span><br></pre></td></tr></table></figure></blockquote>
 
 
                 <hr>

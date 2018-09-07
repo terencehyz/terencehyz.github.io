@@ -3,6 +3,61 @@
 
 
     
+  <url>
+    <loc>https://hanyuzhou.com/2018/09/07/a-vue-weather-forecast-webapp/</loc>
+    <lastmod>2018-09-07T08:32:39.326Z</lastmod>
+    <data>
+        <display>
+        <title>用vue写一个天气信息webAPP</title>
+        <pubTime>2018-09-07T03:55:46.000Z</pubTime>
+        
+        <tag>vue.js</tag>
+         
+        <tag>天气</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hanyuzhou.com/2017/07/08/awesome-programming-tool-and-docs/</loc>
+    <lastmod>2018-06-09T01:02:15.540Z</lastmod>
+    <data>
+        <display>
+        <title>软件开发优秀资料、工具和框架</title>
+        <pubTime>2017-07-08T12:50:30.000Z</pubTime>
+        
+        <tag>Tools</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hanyuzhou.com/2017/07/25/Tips-for-using-Github/</loc>
+    <lastmod>2018-03-22T04:57:11.668Z</lastmod>
+    <data>
+        <display>
+        <title>Github使用技巧</title>
+        <pubTime>2017-07-25T03:56:05.000Z</pubTime>
+        
+        <tag>GitHub</tag>
+         
+        <tag>Tips</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://hanyuzhou.com/2017/07/27/change-icon-and-splash-ionic/</loc>
@@ -70,23 +125,6 @@
         <pubTime>2018-01-26T15:23:08.000Z</pubTime>
         
         <tag>LaTeX</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hanyuzhou.com/2017/07/08/awesome-programming-tool-and-docs/</loc>
-    <lastmod>2018-02-03T11:26:21.629Z</lastmod>
-    <data>
-        <display>
-        <title>软件开发优秀资料、工具和框架</title>
-        <pubTime>2017-07-08T12:50:30.000Z</pubTime>
-        
-        <tag>Tools</tag>
          
          
            
@@ -196,25 +234,6 @@
         <pubTime>2017-07-15T09:06:17.000Z</pubTime>
         
         <tag>hosts</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hanyuzhou.com/2017/07/25/Tips-for-using-Github/</loc>
-    <lastmod>2017-07-26T10:45:10.256Z</lastmod>
-    <data>
-        <display>
-        <title>Github使用技巧</title>
-        <pubTime>2017-07-25T03:56:05.000Z</pubTime>
-        
-        <tag>GitHub</tag>
-         
-        <tag>Tips</tag>
          
          
            

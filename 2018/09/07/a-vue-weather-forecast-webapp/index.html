@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="vue,韩驭洲,terencehyz">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          用vue写一个天气信息webAPP - TerenceHan的博客 | 韩驭洲的博客
+        
+    </title>
+
+    <link rel="canonical" href="https://hanyuzhou.com/2018/09/07/a-vue-weather-forecast-webapp/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Terence&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/collection/">Collections</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://hanyuzhou.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('https://ws1.sinaimg.cn/large/0076ZMo7ly1fv0y42fyu2j30y70iht9p.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#vue.js" title="vue.js">vue.js</a>
+                        
+                          <a class="tag" href="/tags/#天气" title="天气">天气</a>
+                        
+                    </div>
+                    <h1>用vue写一个天气信息webAPP</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Terence Han on
+                        2018-09-07
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>项目的仓库<a href="https://github.com/terencehyz/weather-forecast-vue" target="_blank" rel="noopener">weather-forecast-vue</a>。<br>项目<a href="https://weather.hanyuzhou.com" target="_blank" rel="noopener">demo</a><br>目前完成了以下功能</p>
+<ul>
+<li>[x] 当前定位城市天气信息查看</li>
+<li>[x] 下拉刷新天气信息</li>
+<li>[x] 上拉加载古诗信息</li>
+<li>[x] 查看24小时逐小时天气信息</li>
+<li>[x] 查看未来6天天气信息</li>
+<li>[x] 日落日出时间展示</li>
+<li>[x] 生活信息简略详细展示</li>
+<li>[x] 城市管理</li>
+<li>[x] 天气分享</li>
+<li>[x] 语音播报</li>
+</ul>
+<p>先让我们来看看最终的效果是什么样的~    </p>
+<iframe height="432" width="768" src="http://player.youku.com/embed/XMzgxMjI2MjY0OA==" frameborder="0" 'allowfullscreen'=""></iframe>
+
+<p>话不多说，动手实现吧~</p>
+<h2 id="Step1-安装vue-cli"><a href="#Step1-安装vue-cli" class="headerlink" title="Step1 安装vue-cli"></a>Step1 安装vue-cli</h2><blockquote>
+<p>此处默认你的电脑当中已经安装 <code>node.js</code> 和 <code>npm</code></p>
+</blockquote>
+<ol>
+<li><p>全局安装<code>webpack</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全局安装<code>vue-cli</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global vue-cli</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Step2-构建项目并安装插件"><a href="#Step2-构建项目并安装插件" class="headerlink" title="Step2 构建项目并安装插件"></a>Step2 构建项目并安装插件</h2><h3 id="构建-vue-项目"><a href="#构建-vue-项目" class="headerlink" title="构建 vue 项目"></a>构建 <code>vue</code> 项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack vueWeather //vueWeather为此项目的名称你也可以使用其他的</span><br><span class="line"><span class="built_in">cd</span> ./vueWeather //进入到项目目录</span><br><span class="line">npm install</span><br><span class="line">npm run dev //以dev方式执行项目</span><br></pre></td></tr></table></figure>
+<p>此时你就可以在浏览器当中看到你正在运行的项目</p>
+<blockquote>
+<p>当第一个命令执行后，会有几个选项让你选:</p>
+<blockquote>
+<ul>
+<li><code>Project name</code>项目名称</li>
+<li><code>Project description (A Vue.js project)</code>项目描述，也可直接点击回车，使用默认名字</li>
+<li><code>Author ()</code>作者</li>
+<li><code>Runtime + Compiler: recommended for most users</code>运行加编译，回车选择yes<code>Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specificHTML) are ONLY allowed in .vue files - render functions are required elsewhere</code>仅运行时，已经有推荐了就选择第一个了</li>
+<li><code>Install vue-router? (Y/n)</code>是否安装vue-router，项目中我们会使用vue-router来做路由，所以选择yes</li>
+<li><code>Use ESLint to lint your code? (Y/n)</code>是否使用ESLint管理代码，根据自己的情况做出选择</li>
+<li><code>Setup unit tests with Karma + Mocha? (Y/n)</code>是否安装单元测试，笔者本次没有安装</li>
+<li><code>Setup e2e tests with Nightwatch(Y/n)?</code>是否安装e2e测试，笔者本次没有安装</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h3><blockquote>
+<p>vue拥有丰富的轮子，所以我们可以直接使用已经写好的轮子，从而提高开发效率。</p>
+</blockquote>
+<ol>
+<li><p>安装<code>axios</code><br><code>Vue</code> 原本有一个官方推荐的 <code>ajax</code> 插件 <code>vue-resource</code>，但是自从 <code>Vue</code> 更新到 2.0 之后，尤雨溪宣布停止更新 <code>vue-resource</code>，并推荐大家使用<code>axios</code>之后，越来越多的 <code>Vue</code> 项目，都选择 <code>axios</code> 来完成 <code>ajax</code> 请求，而大型项目会使用 <code>Vuex</code> 来管理数据。        </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios --save</span><br></pre></td></tr></table></figure>
+<p> 大部分的插件可以在 <code>main.js</code> 文件中引入后进行 <code>Vue.use()</code>，但是 <code>axios</code> 不能 <code>use</code>。只能每个需要发送请求的组件中即时引入。为了解决这个问题，有两种开发思路，一是在引入 <code>axios</code> 之后，修改原型链，二是结合 <code>Vuex</code>，封装一个 <code>aciton</code>。这里只说修改原型链的方式<br>在 <code>main.js</code> 中引入 <code>axios</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br></pre></td></tr></table></figure>
+<p> 这时候如果在其它的组件中，是无法使用 <code>axios</code> 命令的。所以我们将 <code>axios</code> 改写为 <code>Vue</code> 的原型属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$http= axios</span><br></pre></td></tr></table></figure>
+<p> 在 <code>main.js</code> 中添加了这两行代码之后，就能直接在组件的 <code>methods</code> 中使用 <code>$http</code>命令</p>
+</li>
+<li><p>安装<code>muse-ui</code><br>由于要实现手机端的webapp，于是在比较流行的框架中选择了<code>muse-ui</code>进行开发，具体使用方式如下，你也可以查看<a href="https://muse-ui.org" target="_blank" rel="noopener">官方文档</a>，进行跟深一步的学习。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i muse-ui --save</span><br></pre></td></tr></table></figure>
+<p> 安装完成后，在<code>main.js</code>文件中进行引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MuseUI <span class="keyword">from</span> <span class="string">'muse-ui'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'muse-ui/dist/muse-ui.css'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(MuseUI);</span><br></pre></td></tr></table></figure>
+<p> 除此之外，还用到了 <code>muse-ui</code> 中提供的 <code>muse-ui-loading</code> 和 <code>muse-ui-progress</code><br><code>muse-ui-loading</code>用于实现加载动画</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install muse-ui-loading --save</span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'muse-ui-loading/dist/muse-ui-loading.css'</span>; <span class="comment">// load css</span></span><br><span class="line"><span class="keyword">import</span> Loading <span class="keyword">from</span> <span class="string">'muse-ui-loading'</span>;</span><br><span class="line">Vue.use(Loading);</span><br></pre></td></tr></table></figure>
+<p> 插件<code>muse-ui-progress</code>用于实现页面加载的进度条</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install muse-ui-progress --save</span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js 文件</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'muse-ui-progress/dist/muse-ui-progress.css'</span>;</span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">'muse-ui-progress'</span>;</span><br><span class="line">Vue.use(NProgress);</span><br></pre></td></tr></table></figure>
+<p> 在 <code>index.html</code> 引入 <code>muse-ui</code> 推荐的<a href="https://material.io/tools/icons/" target="_blank" rel="noopener">Material Design Icons</a>字体图标库</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>vue-xc-city</code><br>使用<a href="https://github.com/webfansplz/xcCity" target="_blank" rel="noopener">vue-xc-city</a>这个插件用于城市搜索</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-xc-city --save</span><br></pre></td></tr></table></figure>
+<p> 安装完成后，在<code>main.js</code>文件中进行引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vueXcCity <span class="keyword">from</span> <span class="string">'vue-xc-city'</span>;  </span><br><span class="line"><span class="keyword">import</span> <span class="string">'vue-xc-city/dist/xc-city.css'</span>;  </span><br><span class="line"></span><br><span class="line">Vue.use(vueXcCity);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>vue-slip-delete</code><br>使用<a href="https://github.com/Jmingzi/vue-slip-delete" target="_blank" rel="noopener">vue-slip-delete</a>这个插件用于实现城市左滑删除</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-slip-delete --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>v-distpicker</code><br>使用<a href="https://github.com/jcc/v-distpicker" target="_blank" rel="noopener">v-distpicker</a>这个插件用于实现城市选择功能</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install v-distpicker --save</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Step3-定位与天气API"><a href="#Step3-定位与天气API" class="headerlink" title="Step3 定位与天气API"></a>Step3 定位与天气API</h2><p>因为要查看当前位置的天气信息，所有要使用到定位API和天气API。</p>
+<h3 id="天气API"><a href="#天气API" class="headerlink" title="天气API"></a>天气API</h3><p>笔者在这里选用了<a href="https://www.seniverse.com/" target="_blank" rel="noopener">心知天气</a>提供的付费<a href="https://www.seniverse.com/doc" target="_blank" rel="noopener">API</a>。</p>
+<blockquote>
+<p>心知天气支持全国2567个、全球24,373个城市和地点。</p>
+</blockquote>
+<h3 id="定位API"><a href="#定位API" class="headerlink" title="定位API"></a>定位API</h3><p>这次所使用的是高德地图所提供的<a href="https://lbs.amap.com/" target="_blank" rel="noopener">API</a>。</p>
+<h2 id="Step4-解决跨域问题"><a href="#Step4-解决跨域问题" class="headerlink" title="Step4 解决跨域问题"></a>Step4 解决跨域问题</h2><p><code>vue</code> 项目中，前端与后台进行数据请求或者提交的时候，如果后台没有设置跨域，前端本地调试代码的时候就会报“ <code>No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource.</code> ” 这种跨域错误。<br>这样的问题解决办法如下：<br>在 <code>config/index.js</code> 中找到 <code>proxyTable</code>，将内容修改为如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">  <span class="string">'/apis'</span>: &#123;    <span class="comment">//将www.exaple.com印射为/apis</span></span><br><span class="line">    target: <span class="string">''</span>,  <span class="comment">// 接口域名</span></span><br><span class="line">    secure: <span class="literal">false</span>,  <span class="comment">// 如果是https接口，需要配置这个参数</span></span><br><span class="line">    changeOrigin: <span class="literal">true</span>,  <span class="comment">//是否跨域</span></span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">'^/apis'</span>: <span class="string">''</span>   <span class="comment">//需要rewrite的,</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>这样修改后，使用 <code>axios</code> 就可以直接这样用：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getData () &#123; </span><br><span class="line"> <span class="keyword">this</span>.$http.get(<span class="string">'/apis/XXX'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123; </span><br><span class="line">   <span class="built_in">console</span>.log(res) </span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Step5-修改字体"><a href="#Step5-修改字体" class="headerlink" title="Step5 修改字体"></a>Step5 修改字体</h2><p>在 <code>scr</code> 目录下新建 <code>common/font</code> 目录，将要添加/修改的字体拷贝进去，然后新建 <code>font.css</code> 文件，样例为思源黑体。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'SourceHanSansCN'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'./SourceHanSansCN.otf'</span>);</span><br><span class="line">  <span class="attribute">font-weight</span>: normal;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Step6-编写-Vue-组件"><a href="#Step6-编写-Vue-组件" class="headerlink" title="Step6 编写 Vue 组件"></a>Step6 编写 <code>Vue</code> 组件</h2><blockquote>
+<p>这一部分，笔者会挑组件中相对比较复杂的组件进行说明，其他组件大家直接看GitHub中的代码即可！</p>
+</blockquote>
+<h3 id="Weather-组件"><a href="#Weather-组件" class="headerlink" title="Weather 组件"></a><code>Weather</code> 组件</h3><p>这一组件用于显示天气信息，是一个复用的组件，展示当前城市天气，以及其他城市天气信息。<br>这一页面由其他多个组件共同构成，通过传参来显示信息。</p>
+<h4 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h4><p>这个页面的下拉刷新使用的是<code>muse-ui</code>所提供的组件。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mu-load-more</span> @<span class="attr">refresh</span>=<span class="string">"refresh"</span> <span class="attr">:refreshing</span>=<span class="string">"refreshing"</span> <span class="attr">:loading</span>=<span class="string">"loading"</span> @<span class="attr">load</span>=<span class="string">"load"</span> <span class="attr">:loading-text</span>=<span class="string">"localPeom"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mu-load-more</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="HelloWorld-组件"><a href="#HelloWorld-组件" class="headerlink" title="HelloWorld 组件"></a><code>HelloWorld</code> 组件</h3><p>这个组件是路由的默认页面，页面中只包含了 <code>Weather</code> 组件，<code>HelloWorld</code> 组件用于获取用户当前位置信息，然后再传递给 <code>Weather</code> 组件。</p>
+<p>在 <code>index.html</code> 中添加以下代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://webapi.amap.com/maps?v=1.4.9&amp;key=你的key"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">GaoDeAPI()&#123;</span><br><span class="line">	<span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">	<span class="keyword">var</span> map, geolocation;</span><br><span class="line">	<span class="comment">//加载地图，调用浏览器定位服务</span></span><br><span class="line">	map = <span class="keyword">new</span> AMap.Map(<span class="string">'FakeContainer'</span>, &#123;</span><br><span class="line">	  resizeEnable: <span class="literal">true</span></span><br><span class="line">	&#125;);</span><br><span class="line">	map.plugin(<span class="string">'AMap.Geolocation'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	  geolocation = <span class="keyword">new</span> AMap.Geolocation(&#123;</span><br><span class="line">	    enableHighAccuracy: <span class="literal">true</span>,<span class="comment">//是否使用高精度定位，默认:true</span></span><br><span class="line">	    timeout: <span class="number">10000</span>,          <span class="comment">//超过10秒后停止定位，默认：无穷大</span></span><br><span class="line">	    buttonOffset: <span class="keyword">new</span> AMap.Pixel(<span class="number">10</span>, <span class="number">20</span>),<span class="comment">//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)</span></span><br><span class="line">	    zoomToAccuracy: <span class="literal">true</span>,      <span class="comment">//定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false</span></span><br><span class="line">	    buttonPosition:<span class="string">'RB'</span></span><br><span class="line">	  &#125;);</span><br><span class="line">	  map.addControl(geolocation);</span><br><span class="line">	  geolocation.getCurrentPosition();</span><br><span class="line">	  AMap.event.addListener(geolocation, <span class="string">'complete'</span>, onComplete);<span class="comment">//返回定位信息</span></span><br><span class="line">	  AMap.event.addListener(geolocation, <span class="string">'error'</span>, onError);      <span class="comment">//返回定位出错信息</span></span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="comment">//解析定位结果</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">onComplete</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	  <span class="keyword">var</span> str=[<span class="string">'定位成功'</span>];</span><br><span class="line">	  str.push(<span class="string">'经度：'</span> + data.position.getLng());</span><br><span class="line">	  str.push(<span class="string">'纬度：'</span> + data.position.getLat());</span><br><span class="line">	  _this.lon = data.position.getLng();</span><br><span class="line">	  _this.lat = data.position.getLat();</span><br><span class="line">	  <span class="keyword">var</span> c = data.addressComponent.city;</span><br><span class="line">	  c= c.substring(<span class="number">0</span>,c.length<span class="number">-1</span>);</span><br><span class="line">	  localStorage.setItem(<span class="string">'currentCity'</span>,c);</span><br><span class="line">	  <span class="built_in">console</span>.log(c);</span><br><span class="line">	  <span class="keyword">if</span>(data.accuracy)&#123;</span><br><span class="line">	    str.push(<span class="string">'精度：'</span> + data.accuracy + <span class="string">' 米'</span>);</span><br><span class="line">	  &#125;<span class="comment">//如为IP精确定位结果则没有精度信息</span></span><br><span class="line">	  str.push(<span class="string">'是否经过偏移：'</span> + (data.isConverted ? <span class="string">'是'</span> : <span class="string">'否'</span>));</span><br><span class="line">	  <span class="comment">//console.log(str);</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//解析定位错误信息</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">onError</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">"gaode:"</span>+data.message);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="HourWeather-组件"><a href="#HourWeather-组件" class="headerlink" title="HourWeather 组件"></a><code>HourWeather</code> 组件</h3><blockquote>
+<p>这一组件用来显示未来24小时，逐小时天气信息。</p>
+</blockquote>
+<p>这个模块重点要实现左右滑动的效果<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"HourBorder"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"HourAuto"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"context"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">"list-style:none;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in hourData"</span> <span class="attr">:key</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"aDay"</span> <span class="attr">style</span>=<span class="string">"float:left; padding:0; "</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;backTime(item.time)&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imgList[item.code]"</span> <span class="attr">alt</span>=<span class="string">"icon"</span> <span class="attr">ondragstart</span>=<span class="string">"return false;"</span> <span class="attr">oncontextmenu</span>=<span class="string">"return false;"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;item.temperature&#125;&#125;°<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>HourBorder</code> 类用于控制逐小时显示的大小，<code>overflow: hidden</code> 的设置使超出div的部分隐藏，不会使整个页面变形。<br><code>HourAuto</code> 类用于横向滑动，当元素宽度超过父容器时，自动左右滑动。</p>
+<h3 id="City-组件"><a href="#City-组件" class="headerlink" title="City 组件"></a><code>City</code> 组件</h3><p>这一组件当中，用到了 <code>vue-slip-delete</code> 这一插件，用于删除已添加的城市。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">slip-del</span></span></span><br><span class="line"><span class="tag"><span class="attr">v-for</span>=<span class="string">"(item, i) in list"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">:key</span>=<span class="string">"i"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">ref</span>=<span class="string">"slipDel"</span></span></span><br><span class="line"><span class="tag">	@<span class="attr">slip-open</span>=<span class="string">"slipOpen"</span></span></span><br><span class="line"><span class="tag">	@<span class="attr">del-click</span>=<span class="string">"del(i)"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">v-if</span>=<span class="string">"i!=0"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo-item"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mu-row</span> <span class="attr">class</span>=<span class="string">"d2"</span> @<span class="attr">click</span>=<span class="string">"navToFav(item.results[0].location.name)"</span> <span class="attr">:style</span>=<span class="string">"&#123;backgroundImage:'url('+item.results[0].now.imageurl+dayOrNight+'.jpg'&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mu-col</span> <span class="attr">span</span>=<span class="string">"9"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"d3"</span>&gt;</span></span><br><span class="line">        &amp;nbsp;&#123;&#123;item.results[0].now.text&#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"d4"</span>&gt;</span></span><br><span class="line">        &#123;&#123;item.results[0].location.name&#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mu-col</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mu-col</span> <span class="attr">span</span>=<span class="string">"3"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"d5"</span>&gt;</span></span><br><span class="line">        &#123;&#123;item.results[0].now.temperature&#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mu-col</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mu-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"del"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">size</span>=<span class="string">"32"</span> <span class="attr">value</span>=<span class="string">"delete"</span> <span class="attr">style</span>=<span class="string">"display: block; margin: 0 auto;"</span>&gt;</span><span class="tag">&lt;/<span class="name">mu-icon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">slip-del</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>del()</code>函数用于处理用户删除后的操作，这里我们将索引传入，用于删除相对应的城市。</p>
+<h3 id="Favourite-组件"><a href="#Favourite-组件" class="headerlink" title="Favourite 组件"></a><code>Favourite</code> 组件</h3><p><code>Favourite</code> 组件与 <code>HelloWorld</code>组件有类似的地方：整个组件是由 <code>Weather</code> 组件组成。不同的是，在城市列表页选择了城市后，跳转到 <code>Favourite</code> 组件中，并显示指定城市的天气情况。</p>
+<h3 id="CitySelect-组件"><a href="#CitySelect-组件" class="headerlink" title="CitySelect 组件"></a><code>CitySelect</code> 组件</h3><p>这个组件的作用是选择想要添加的城市，可以通过搜索和三级联动进行选择。分别用到了第三方插件<code>vue-xc-city</code> 和 <code>v-distpicker</code>。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xc-city</span> @<span class="attr">get-data</span>=<span class="string">"getData"</span>&gt;</span><span class="tag">&lt;/<span class="name">xc-city</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divwrap"</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">v-distpicker</span> <span class="attr">type</span>=<span class="string">"mobile"</span> <span class="attr">hide-area</span> @<span class="attr">province</span>=<span class="string">"onChangeProvince"</span> @<span class="attr">city</span>=<span class="string">"onChangeCity"</span> @<span class="attr">area</span>=<span class="string">"onChangeArea"</span>&gt;</span><span class="tag">&lt;/<span class="name">v-distpicker</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h3><p>其他组件大部分都是展示像后台请求到的信息，使用不同的布局进行展示，以达到简洁但不简单的效果！</p>
+<p>详细代码可以查看<a href="https://github.com/terencehyz/weather-forecast-vue" target="_blank" rel="noopener">weather-forecast-vue</a></p>
+<p>欢迎学习交流~</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/02/08/awesome-latex/" data-toggle="tooltip" data-placement="top" title="latex实用工具">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#vue.js" title="vue.js">vue.js</a>
+                        
+                          <a class="tag" href="/tags/#天气" title="天气">天气</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.imudges.com/" target="_blank">IMUDGES</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "terencesblog";
+    var disqus_identifier = "https://hanyuzhou.com/2018/09/07/a-vue-weather-forecast-webapp/";
+    var disqus_url = "https://hanyuzhou.com/2018/09/07/a-vue-weather-forecast-webapp/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:https://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/woshihyz1996">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/terence-han">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/terencehyz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/驭洲-韩-953909136">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Terence&#39;s Blog 2018 
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Baidu Auto Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- End of Baidu Auto Push -->
+
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hanyuzhou.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-90359012-1';
+    var _gaDomain = 'hanyuzhou.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4acef7465b448692d5d5060cc556c9ab';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="https://hanyuzhou.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
