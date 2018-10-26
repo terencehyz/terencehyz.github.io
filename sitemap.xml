@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hanyuzhou.com/about/index.html</loc>
+    
+    <lastmod>2018-10-26T04:56:14.014Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hanyuzhou.com/2018/09/07/a-vue-weather-forecast-webapp/</loc>
     
     <lastmod>2018-09-07T08:39:45.538Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://hanyuzhou.com/2017/07/25/Tips-for-using-Github/</loc>
     
     <lastmod>2018-03-22T04:57:11.668Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/about/index.html</loc>
-    
-    <lastmod>2018-03-21T08:57:13.809Z</lastmod>
     
   </url>
   
