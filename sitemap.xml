@@ -2,9 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hanyuzhou.com/2017/07/27/change-icon-and-splash-ionic/</loc>
+    
+    <lastmod>2019-11-20T11:31:18.344Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/02/05/how-to-install-TIM-without-jailbreak/</loc>
+    
+    <lastmod>2019-11-20T11:26:06.550Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/09/09/how-to-change-npm-source/</loc>
+    
+    <lastmod>2019-11-20T11:25:29.009Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2018/01/26/Getting-Start-with-LaTeX/</loc>
+    
+    <lastmod>2019-11-20T11:24:57.001Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/09/17/Configure-the-Gradle-environment/</loc>
+    
+    <lastmod>2019-11-20T11:24:14.066Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hanyuzhou.com/2018/12/19/Improve-git-clone-download-speed-and-solve-git-clone-failure/</loc>
     
-    <lastmod>2018-12-19T04:58:22.548Z</lastmod>
+    <lastmod>2019-11-20T11:23:34.128Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/02/04/javascript-data-type/</loc>
+    
+    <lastmod>2019-11-20T11:22:47.786Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/07/09/network-resources/</loc>
+    
+    <lastmod>2019-11-20T11:22:09.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/07/15/public-hosts/</loc>
+    
+    <lastmod>2019-11-20T11:21:11.839Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/03/05/tips-for-vue-mobile-device-development/</loc>
+    
+    <lastmod>2019-11-20T11:20:37.127Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/07/08/awesome-programming-tool-and-docs/</loc>
+    
+    <lastmod>2019-11-20T11:17:24.279Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/11/16/awesome-nutz/</loc>
+    
+    <lastmod>2019-11-20T11:14:42.442Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2018/02/08/awesome-latex/</loc>
+    
+    <lastmod>2019-11-20T11:14:08.575Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2017/03/05/about-vue-cli/</loc>
+    
+    <lastmod>2019-11-20T11:13:27.174Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hanyuzhou.com/2018/09/07/a-vue-weather-forecast-webapp/</loc>
+    
+    <lastmod>2019-11-20T11:12:40.898Z</lastmod>
     
   </url>
   
@@ -16,20 +114,6 @@
   </url>
   
   <url>
-    <loc>https://hanyuzhou.com/2018/09/07/a-vue-weather-forecast-webapp/</loc>
-    
-    <lastmod>2018-09-07T08:39:45.538Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/07/08/awesome-programming-tool-and-docs/</loc>
-    
-    <lastmod>2018-06-09T01:02:15.540Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hanyuzhou.com/2017/07/25/Tips-for-using-Github/</loc>
     
     <lastmod>2018-03-22T04:57:11.668Z</lastmod>
@@ -37,100 +121,9 @@
   </url>
   
   <url>
-    <loc>https://hanyuzhou.com/2017/07/27/change-icon-and-splash-ionic/</loc>
-    
-    <lastmod>2018-03-06T13:41:32.008Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2018/02/08/awesome-latex/</loc>
-    
-    <lastmod>2018-02-08T15:57:54.496Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/03/05/about-vue-cli/</loc>
-    
-    <lastmod>2018-02-08T15:57:04.076Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2018/01/26/Getting-Start-with-LaTeX/</loc>
-    
-    <lastmod>2018-02-07T03:21:05.541Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/07/09/network-resources/</loc>
-    
-    <lastmod>2018-02-03T11:25:19.211Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/02/21/uses-of-Google-Voice/</loc>
-    
-    <lastmod>2018-01-27T15:21:53.732Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/11/16/awesome-nutz/</loc>
-    
-    <lastmod>2017-11-16T10:52:05.346Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/09/17/Configure-the-Gradle-environment/</loc>
-    
-    <lastmod>2017-09-17T05:18:44.240Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hanyuzhou.com/collection/index.html</loc>
     
     <lastmod>2017-09-09T06:36:52.778Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/09/09/how-to-change-npm-source/</loc>
-    
-    <lastmod>2017-09-09T05:15:45.202Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/07/15/public-hosts/</loc>
-    
-    <lastmod>2017-07-27T09:09:10.253Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/03/05/tips-for-vue-mobile-device-development/</loc>
-    
-    <lastmod>2017-03-05T02:59:13.532Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/02/05/how-to-install-TIM-without-jailbreak/</loc>
-    
-    <lastmod>2017-02-05T05:05:04.334Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hanyuzhou.com/2017/02/04/javascript-data-type/</loc>
-    
-    <lastmod>2017-02-05T05:05:01.787Z</lastmod>
     
   </url>
   
