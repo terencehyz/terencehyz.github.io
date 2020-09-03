@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hanyuzhou.com/"/>
-  <updated>2019-11-20T11:23:34.128Z</updated>
+  <updated>2020-09-03T01:54:55.554Z</updated>
   <id>https://hanyuzhou.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>联想天逸510Pro-18ICB无法进入BIOS且开机无自检画面解决办法</title>
+    <link href="https://hanyuzhou.com/2020/09/02/boot-and-BIOS-issue-of-lenovo-tianyi-510-pro/"/>
+    <id>https://hanyuzhou.com/2020/09/02/boot-and-BIOS-issue-of-lenovo-tianyi-510-pro/</id>
+    <published>2020-09-02T14:00:00.000Z</published>
+    <updated>2020-09-03T01:54:55.554Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天刚搬到了新的实验室，拼接好机器后发现无法选择操作系统（Ubuntu+Windows双系统），只能由grub引导进入Ubuntu系统。经过排查，发现了以下问题：</p><ol><li>开机无自检画面（无Lenovo的logo），进入系统后才显示器才有信号；</li><li>无法进入BIOS（按F1）</li><li>无法选择引导项（按F12）</li><li>无法进入硬件检测（按F8）</li></ol><p>于是通过联想官方微信号，联系在线工程师进行咨询。在线工程师给到的处理意见是进行静电释放，具体操作如下：</p><blockquote><p>释放静电：您把电脑关机，拔掉主机后方的所有连接线，电源线/网线/音频/视频/键盘鼠标/等全部拔掉，开机键按住不松手，数5秒，重复三次，完成后插好背面连接线，再来正常开机，看能否开启。</p></blockquote><p>经过操作后发现问题依然无法解决。</p><p>经过与小伙伴的讨论，最终发现是HDMI线插错了位置。这款主机有独立显卡和集成显卡，应将HDMI（或VGA）插到独立显卡对应的接口，也就是主机下面的接口，而不是上半部分的接口。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前几天刚搬到了新的实验室，拼接好机器后发现无法选择操作系统（Ubuntu+Windows双系统），只能由grub引导进入Ubuntu系统。经过排查，发现了以下问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;开机无自检画面（无Lenovo的logo），进入系统后才显示器才有信号；&lt;/li&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="硬件" scheme="https://hanyuzhou.com/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+      <category term="BIOS" scheme="https://hanyuzhou.com/tags/BIOS/"/>
+    
+  </entry>
   
   <entry>
     <title>提高git clone下载速度并解决git clone失败问题</title>
